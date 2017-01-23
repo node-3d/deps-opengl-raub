@@ -1,0 +1,25 @@
+{
+	"name": "node-deps-opengl-raub",
+	"author": "Luis Blanco <raubtierxxx@gmail.com>",
+	"description": "A custom way of binary dependencies distribution.",
+	"version": "0.1.2",
+	"main": "index.js",
+	"keywords": [
+		"webgl",
+		"opengl",
+		"3d",
+		"graphics"
+	],
+	"maintainers": [
+		{
+			"name": "Luis Blanco",
+			"email": "raubtierxxx@gmail.com",
+			"skype": "rauber666"
+		}
+	],
+	"license" : "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/raub/node-deps-opengl"
+	},
+}
