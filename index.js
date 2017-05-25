@@ -1,18 +1,23 @@
 'use strict';
 
-const os = require('os');
 
 const platformPaths = {
-	win32 : '/bin_win32' ,
-	linux : '/bin_linux' ,
-	darwin: '/bin_darwin',
+	
+	get win32() { return process.arch === 'x64' ? 'bin_win64' : 'bin_win32'; },
+	
+	linux  : 'bin_linux' ,
+	
+	darwin : 'bin_darwin',
+	
 };
 
-const binPath = __dirname + platformPaths[os.platform()];
+const binDir  = platformPaths[process.platform];
+const binPath = `${__dirname}/${binDir}`;
 
 process.env.path += ';' + binPath;
 
 module.exports = {
-	root: __dirname,
-	bin : binPath,
+	root : __dirname,
+	bin  : binPath,
+	dir  : binDir,
 };
