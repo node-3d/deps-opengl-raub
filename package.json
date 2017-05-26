@@ -1,8 +1,8 @@
 {
 	"name": "node-deps-opengl-raub",
 	"author": "Luis Blanco <raubtierxxx@gmail.com>",
-	"description": "A custom way of binary dependencies distribution.",
-	"version": "0.2.0",
+	"description": "Common dependencies for opengl-dependent compilation. +Binaries.",
+	"version": "0.2.1",
 	"main": "index.js",
 	"keywords": [
 		"webgl",
