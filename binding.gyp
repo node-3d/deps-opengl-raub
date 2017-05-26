@@ -1,21 +1,16 @@
 {
 	'variables': {
-		'dir'    : '3',
-		# 'dir'    : '<!(node -e "console.log(require(\'.\').dir)")',
+		'dir'    : '<!(node -e "console.log(require(\'.\').dir)")',
+		'rem'    : '<!(node -e "console.log(require(\'.\').rem)")',
 	},
 	'targets': [
 		{
-			'target_name'  : 'remove_temporaries',
+			'target_name'  : 'remove_extras',
 			'type'         : 'none',
-			'message'      : 'Removing temporary files.',
-			# 'inputs'      : ['build/Release/glfw.*'],
-			# 'inputs'      : ['1', '2'],
-			# 'sources!'     : ['<(dir)'],
 			'actions'      : [
 				{
-					'action_name' : 'action_remove1',
-					'inputs'      : ['1', '2', '3'],
-					'inputs!'      : ['<(dir)'],
+					'action_name' : 'RemoveExtraLibs',
+					'inputs'      : ['<@(rem)'],
 					'outputs'     : ['<(dir)'],
 					'conditions'  : [
 						[ 'OS=="linux"', { 'action' : [ 'rm -rf <@(_inputs)' ] } ],

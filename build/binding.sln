@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "remove_temporaries", "remove_temporaries.vcxproj", "{EB2D6B13-FC4C-7062-CBD2-0BBA6598F48C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "remove_extras", "remove_extras.vcxproj", "{8AFBE2F7-6B5E-647A-3CF6-AEF329161C29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,10 +8,10 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EB2D6B13-FC4C-7062-CBD2-0BBA6598F48C}.Debug|x64.ActiveCfg = Debug|x64
-		{EB2D6B13-FC4C-7062-CBD2-0BBA6598F48C}.Debug|x64.Build.0 = Debug|x64
-		{EB2D6B13-FC4C-7062-CBD2-0BBA6598F48C}.Release|x64.ActiveCfg = Release|x64
-		{EB2D6B13-FC4C-7062-CBD2-0BBA6598F48C}.Release|x64.Build.0 = Release|x64
+		{8AFBE2F7-6B5E-647A-3CF6-AEF329161C29}.Debug|x64.ActiveCfg = Debug|x64
+		{8AFBE2F7-6B5E-647A-3CF6-AEF329161C29}.Debug|x64.Build.0 = Debug|x64
+		{8AFBE2F7-6B5E-647A-3CF6-AEF329161C29}.Release|x64.ActiveCfg = Release|x64
+		{8AFBE2F7-6B5E-647A-3CF6-AEF329161C29}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
