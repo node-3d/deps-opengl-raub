@@ -31,5 +31,5 @@ module.exports = {
 	root : __dirname,
 	bin  : binPath,
 	dir  : binDir,
-	rem  : Object.keys(remDirs).map(k => `${__dirname}/${k}`).join(' '),
+	rem  : Object.keys(remDirs).map(k => `${__dirname.replace(/\\/g, '/')}/${k}`).join(' '),
 };
