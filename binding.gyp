@@ -9,7 +9,7 @@
 			'type'         : 'none',
 			'actions'      : [
 				{
-					'action_name' : 'RemoveExtraLibs',
+					'action_name' : 'Unnecessary binaries removed.',
 					'inputs'      : ['<@(rem)'],
 					'outputs'     : ['<(dir)'],
 					'conditions'  : [
