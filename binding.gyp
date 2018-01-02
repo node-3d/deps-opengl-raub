@@ -11,7 +11,7 @@
 				{
 					'action_name' : 'Unnecessary binaries removed.',
 					'inputs'      : ['<@(rem)'],
-					'outputs'     : ['<(dir)'],
+					'outputs'     : ['build'],
 					'conditions'  : [
 						[ 'OS=="linux"', { 'action' : [ 'rm', '-rf', '<@(_inputs)' ] } ],
 						[ 'OS=="mac"'  , { 'action' : [ 'rm', '-rf', '<@(_inputs)' ] } ],

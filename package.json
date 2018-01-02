@@ -2,13 +2,24 @@
 	"name": "node-deps-opengl-raub",
 	"author": "Luis Blanco <raubtierxxx@gmail.com>",
 	"description": "Common dependencies for opengl-dependent compilation. +Binaries.",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"main": "index.js",
 	"keywords": [
 		"webgl",
 		"opengl",
 		"3d",
-		"graphics"
+		"graphics",
+		"binaries",
+		"deps",
+		"dependency",
+		"addon",
+		"compile",
+		"lib",
+		"dll",
+		"so",
+		"windows",
+		"mac",
+		"linux"
 	],
 	"maintainers": [
 		{
