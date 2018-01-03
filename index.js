@@ -24,7 +24,9 @@ delete remDirs[binDir];
 const binPath = `${__dirname}/${binDir}`;
 
 
-process.env.path += ';' + binPath;
+if (process.platform === 'win32') {
+	process.env.path = `${process.env.path ? `${process.env.path};` : ''}${binPath}`;
+}
 
 
 module.exports = {
