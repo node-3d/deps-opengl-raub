@@ -6,7 +6,6 @@ const remDirs = {
 	bin_win64    : 1,
 	bin_linux32  : 1,
 	bin_linux64  : 1,
-	bin_mac32    : 1,
 	bin_mac64    : 1,
 };
 
@@ -14,7 +13,7 @@ const platformPaths = {
 	
 	get win32()  { return process.arch === 'x64' ? 'bin_win64'   : 'bin_win32';   },
 	get linux()  { return process.arch === 'x64' ? 'bin_linux64' : 'bin_linux32'; },
-	get darwin() { return process.arch === 'x64' ? 'bin_mac64'   : 'bin_mac32';   },
+	get darwin() { return 'bin_mac64'; },
 	
 };
 

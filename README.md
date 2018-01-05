@@ -5,7 +5,7 @@
 
 Common dependencies for opengl-dependent compilation. +Binaries.
 
-* Platforms: win x32/x64, linux32 x32/x64, mac32 x32/x64.
+* Platforms: win x32/x64, linux x32/x64, mac x64.
 * Libraries: FreeImage, GLEW, GLFW, GL.
 
 
