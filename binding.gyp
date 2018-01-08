@@ -1,6 +1,5 @@
 {
 	'variables': {
-		'dir' : '<!(node -e "console.log(require(\'.\').dir)")',
 		'rem' : '<!(node -e "console.log(require(\'.\').rem)")',
 	},
 	'targets': [

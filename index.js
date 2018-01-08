@@ -29,9 +29,7 @@ if (process.platform === 'win32') {
 
 
 module.exports = {
-	root    : __dirname,
 	bin     : binPath,
-	dir     : binDir,
 	rem     : Object.keys(remDirs).map(k => `${__dirname.replace(/\\/g, '/')}/${k}`).join(' '),
 	include : `${__dirname}/include`,
 };
