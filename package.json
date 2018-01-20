@@ -5,7 +5,6 @@
 	"version": "0.3.4",
 	"main": "index.js",
 	"keywords": [
-		"webgl",
 		"opengl",
 		"3d",
 		"graphics",
@@ -32,5 +31,8 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/raub/node-deps-opengl"
+	},
+	"dependencies": {
+		"node-addon-tools-raub": "0.0.7"
 	}
 }

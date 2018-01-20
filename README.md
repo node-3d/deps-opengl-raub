@@ -1,12 +1,9 @@
 # node-deps-opengl
 
 
-## Abstract
-
-Common dependencies for opengl-dependent compilation. +Binaries.
-
 * Platforms: win x32/x64, linux x32/x64, mac x64.
-* Libraries: FreeImage, GLEW, GLFW, GL.
+* Libraries: GLEW, GLFW, OpenGL.
+* Linking: static dll-type.
 
 
 ## Install
@@ -14,9 +11,54 @@ Common dependencies for opengl-dependent compilation. +Binaries.
 `npm i -s node-deps-opengl-raub`
 
 
-## Use
+---
 
-**binding.gyp**
+## Legal notice
+
+### GLFW
+
+This software uses the [GLFW open source library](http://www.glfw.org/index.html).
+GLFW is legally used under the ZLIB license.
+It is explicitly stated that GLFW can be used commercially in closed-source projects.
+GLFW licensing information (a COPY) is given in a [separate file](/GLFW_ZLIB),
+which also can be found on
+[GLFW's official repository](https://github.com/glfw/glfw/blob/master/LICENSE.md).
+Windows binaries were found on the official web-site.
+Unix binaries are found through
+[Debian Packages](https://packages.debian.org/stretch/libglew-dev)
+and [MacOS Formulae](http://formulae.brew.sh/formula/glfw).
+
+
+### GLEW
+
+Also this software uses the [GLEW open source library](http://glew.sourceforge.net/).
+GLEW is legally used under it's own custom license.
+It is explicitly stated that GLEW can be used commercially in closed-source projects.
+GLEW licensing information (a COPY) is given in a [separate file](/GLEW_LICENSE),
+which also can be found on
+[GLEW's official repository](https://raw.githubusercontent.com/nigels-com/glew/master/LICENSE.txt).
+Windows binaries were found on the official web-site.
+Unix binaries are found through
+[Debian Packages](https://packages.debian.org/stretch/libglew-dev)
+and [MacOS Formulae](http://formulae.brew.sh/formula/glew).
+
+
+### OpenGL
+
+End users, independent software vendors, and others writing code based on the OpenGL API
+are free from licensing requirements. https://www.opengl.org/about/#11
+
+
+---
+
+The rest of this package is MIT licensed.
+
+---
+
+
+## Usage
+
+### binding.gyp
 
 ```javascript
 	'variables': {
@@ -40,23 +82,23 @@ Common dependencies for opengl-dependent compilation. +Binaries.
 				['OS=="linux"', {
 					'libraries': [
 						'-Wl,-rpath,<(opengl_bin)',
-						'<(opengl_bin)/....so',
-						'<(opengl_bin)/....a',
-						...
+						'<(opengl_bin)/libglfw.so.3',
+						'<(opengl_bin)/libGLEW.so.2.0',
+						'<(opengl_bin)/libGL.so',
+						'<(opengl_bin)/libXrandr.so',
 					],
 				}],
 				
 				['OS=="mac"', {
 					'libraries': [
 						'-Wl,-rpath,<(opengl_bin)',
-						'<(opengl_bin)/....dylib',
-						'<(opengl_bin)/....a',
+						'<(opengl_bin)/glfw.dylib',
+						'<(opengl_bin)/glew.dylib'
 					],
 				}],
 				
 				['OS=="win"', {
-					'libraries': [ '....lib', ... ],
-					...
+					'libraries': [ 'OpenGL32.lib', 'glfw3dll.lib', 'glew32.lib' ],
 				}],
 				
 			],
@@ -64,11 +106,9 @@ Common dependencies for opengl-dependent compilation. +Binaries.
 ```
 
 
-**addon.cpp**
+### addon.cpp
 
 ```cpp
-// Usage example
-
 #include <GL/glew.h>
 
 #define GLFW_NO_GLU
