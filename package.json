@@ -33,6 +33,6 @@
 		"url": "https://github.com/raub/node-deps-opengl"
 	},
 	"dependencies": {
-		"node-addon-tools-raub": "0.0.8"
+		"node-addon-tools-raub": "0.0.9"
 	}
 }
