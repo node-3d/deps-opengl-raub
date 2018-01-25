@@ -8,7 +8,7 @@
 
 ## Install
 
-`npm i -s node-deps-opengl-raub`
+`npm i -s deps-opengl-raub`
 
 
 ---
@@ -62,8 +62,8 @@ The rest of this package is MIT licensed.
 
 ```javascript
 	'variables': {
-		'opengl_include' : '<!(node -e "console.log(require(\'node-deps-opengl-raub\').include)")',
-		'opengl_bin'     : '<!(node -e "console.log(require(\'node-deps-opengl-raub\').bin)")',
+		'opengl_include' : '<!(node -e "console.log(require(\'deps-opengl-raub\').include)")',
+		'opengl_bin'     : '<!(node -e "console.log(require(\'deps-opengl-raub\').bin)")',
 	},
 	...
 	'targets': [
