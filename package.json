@@ -1,8 +1,8 @@
 {
-	"name": "node-deps-opengl-raub",
+	"name": "deps-opengl-raub",
 	"author": "Luis Blanco <raubtierxxx@gmail.com>",
-	"description": "Common dependencies for opengl-dependent compilation. +Binaries.",
-	"version": "0.3.6",
+	"description": "Binaries and headers for OpenGL-dependent compilation",
+	"version": "0.0.1",
 	"main": "index.js",
 	"keywords": [
 		"opengl",
@@ -33,6 +33,6 @@
 		"url": "https://github.com/raub/node-deps-opengl"
 	},
 	"dependencies": {
-		"node-addon-tools-raub": "0.1.2"
+		"addon-tools-raub": "0.0.1"
 	}
 }
