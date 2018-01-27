@@ -1,4 +1,4 @@
-# node-deps-opengl
+# ObenGL binaries
 
 
 * Platforms: win x32/x64, linux x32/x64, mac x64.
