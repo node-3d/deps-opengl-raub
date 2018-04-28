@@ -2,7 +2,7 @@
 	"name": "deps-opengl-raub",
 	"author": "Luis Blanco <raubtierxxx@gmail.com>",
 	"description": "Binaries and headers for OpenGL-dependent compilation",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"main": "index.js",
 	"keywords": [
 		"opengl",
