@@ -1,24 +1,15 @@
 {
-	"name": "deps-opengl-raub",
 	"author": "Luis Blanco <raubtierxxx@gmail.com>",
-	"description": "Binaries and headers for OpenGL-dependent compilation",
+	"name": "deps-opengl-raub",
 	"version": "0.0.5",
+	"description": "Binaries and headers for OpenGL-dependent compilation",
 	"main": "index.js",
 	"keywords": [
-		"opengl",
-		"3d",
-		"graphics",
-		"binaries",
-		"deps",
 		"dependency",
-		"addon",
-		"compile",
-		"lib",
-		"dll",
-		"so",
-		"windows",
-		"mac",
-		"linux"
+		"opengl",
+		"gl",
+		"3d",
+		"graphics"
 	],
 	"maintainers": [
 		{
@@ -30,7 +21,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/raub/node-deps-opengl"
+		"url": "https://github.com/node-3d/deps-opengl-raub.git"
 	},
 	"dependencies": {
 		"addon-tools-raub": "0.1.8"
