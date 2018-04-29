@@ -1,8 +1,9 @@
 {
-	"author": "Luis Blanco <raubtierxxx@gmail.com>",
+	"author": "Luis Blanco <luisblanco1337@gmail.com>",
 	"name": "deps-opengl-raub",
 	"version": "0.0.5",
 	"description": "Binaries and headers for OpenGL-dependent compilation",
+	"license": "MIT",
 	"main": "index.js",
 	"keywords": [
 		"dependency",
@@ -11,14 +12,17 @@
 		"3d",
 		"graphics"
 	],
+	"engines": {
+		"node": ">=8.11.1",
+		"npm": ">=5.6.0"
+	},
 	"maintainers": [
 		{
 			"name": "Luis Blanco",
-			"email": "raubtierxxx@gmail.com",
+			"email": "luisblanco1337@gmail.com",
 			"skype": "rauber666"
 		}
 	],
-	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/node-3d/deps-opengl-raub.git"
