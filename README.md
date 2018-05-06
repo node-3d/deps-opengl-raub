@@ -1,5 +1,12 @@
 # ObenGL binaries
 
+This is a part of [Node3D](https://github.com/node-3d) project.
+
+
+## Synopsis
+
+This dependency package is distributing **OpenGL**, **GLFW3** and **GLEW**
+binaries through **NPM** for **Node.js** addons.
 
 * Platforms: win x32/x64, linux x32/x64, mac x64.
 * Libraries: GLEW, GLFW, OpenGL.
@@ -9,51 +16,6 @@
 ## Install
 
 `npm i -s deps-opengl-raub`
-
-
----
-
-## Legal notice
-
-### GLFW
-
-This software uses the [GLFW open source library](http://www.glfw.org/index.html).
-GLFW is legally used under the ZLIB license.
-It is explicitly stated that GLFW can be used commercially in closed-source projects.
-GLFW licensing information (a COPY) is given in a [separate file](/GLFW_ZLIB),
-which also can be found on
-[GLFW's official repository](https://github.com/glfw/glfw/blob/master/LICENSE.md).
-Windows binaries were found on the official web-site.
-Unix binaries are found through
-[Debian Packages](https://packages.debian.org/stretch/libglew-dev)
-and [MacOS Formulae](http://formulae.brew.sh/formula/glfw).
-
-
-### GLEW
-
-Also this software uses the [GLEW open source library](http://glew.sourceforge.net/).
-GLEW is legally used under it's own custom license.
-It is explicitly stated that GLEW can be used commercially in closed-source projects.
-GLEW licensing information (a COPY) is given in a [separate file](/GLEW_LICENSE),
-which also can be found on
-[GLEW's official repository](https://raw.githubusercontent.com/nigels-com/glew/master/LICENSE.txt).
-Windows binaries were found on the official web-site.
-Unix binaries are found through
-[Debian Packages](https://packages.debian.org/stretch/libglew-dev)
-and [MacOS Formulae](http://formulae.brew.sh/formula/glew).
-
-
-### OpenGL
-
-End users, independent software vendors, and others writing code based on the OpenGL API
-are free from licensing requirements. https://www.opengl.org/about/#11
-
-
----
-
-The rest of this package is MIT licensed.
-
----
 
 
 ## Usage
@@ -136,3 +98,46 @@ The rest of this package is MIT licensed.
 #undef True
 #undef False
 ```
+
+
+---
+
+## Legal notice
+
+### GLFW
+
+This software uses the [GLFW open source library](http://www.glfw.org/index.html).
+GLFW is legally used under the ZLIB license.
+It is explicitly stated that GLFW can be used commercially in closed-source projects.
+GLFW licensing information (a COPY) is given in a [separate file](/GLFW_ZLIB),
+which also can be found on
+[GLFW's official repository](https://github.com/glfw/glfw/blob/master/LICENSE.md).
+Windows binaries were found on the official web-site.
+Unix binaries are found through
+[Debian Packages](https://packages.debian.org/stretch/libglew-dev)
+and [MacOS Formulae](http://formulae.brew.sh/formula/glfw).
+
+
+### GLEW
+
+Also this software uses the [GLEW open source library](http://glew.sourceforge.net/).
+GLEW is legally used under it's own custom license.
+It is explicitly stated that GLEW can be used commercially in closed-source projects.
+GLEW licensing information (a COPY) is given in a [separate file](/GLEW_LICENSE),
+which also can be found on
+[GLEW's official repository](https://raw.githubusercontent.com/nigels-com/glew/master/LICENSE.txt).
+Windows binaries were found on the official web-site.
+Unix binaries are found through
+[Debian Packages](https://packages.debian.org/stretch/libglew-dev)
+and [MacOS Formulae](http://formulae.brew.sh/formula/glew).
+
+
+### OpenGL
+
+End users, independent software vendors, and others writing code based on the OpenGL API
+are free from licensing requirements. https://www.opengl.org/about/#11
+
+
+---
+
+The rest of this package is MIT licensed.
