@@ -1,7 +1,7 @@
 {
 	"author": "Luis Blanco <luisblanco1337@gmail.com>",
 	"name": "deps-opengl-raub",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"description": "Binaries and headers for OpenGL-dependent compilation",
 	"license": "MIT",
 	"main": "index.js",
@@ -28,6 +28,6 @@
 		"url": "https://github.com/node-3d/deps-opengl-raub.git"
 	},
 	"dependencies": {
-		"addon-tools-raub": "^1.0.0"
+		"addon-tools-raub": "^2.0.1"
 	}
 }
