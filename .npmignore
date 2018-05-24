@@ -13,3 +13,4 @@ examples/
 package-lock.json
 test/
 qt/
+.travis.yml

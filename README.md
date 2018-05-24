@@ -2,6 +2,10 @@
 
 This is a part of [Node3D](https://github.com/node-3d) project.
 
+![NPM](https://nodei.co/npm/deps-opengl-raub.png?compact=true)
+
+![Build Status](https://api.travis-ci.org/node-3d/deps-opengl-raub.svg?branch=master)
+
 
 ## Synopsis
 
@@ -11,11 +15,6 @@ binaries through **NPM** for **Node.js** addons.
 * Platforms: win x32/x64, linux x32/x64, mac x64.
 * Libraries: GLEW, GLFW, OpenGL.
 * Linking: static dll-type.
-
-
-## Install
-
-`npm i -s deps-opengl-raub`
 
 
 ## Usage
