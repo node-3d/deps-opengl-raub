@@ -25,11 +25,9 @@ before_install:
 
 install:
   - npm i --XALL
-  - [ -d bin-win32 ] && [ -d bin-win64 ] &&
-    [ -d bin-linux32 ] && [ -d bin-linux64 ] &&
-    [ -d bin-mac64 ] && echo "XALL build succeeded." || false
+  - if [ -d bin-win32 ] && [ -d bin-win64 ] && [ -d bin-linux32 ] && [ -d bin-linux64 ] && [ -d bin-mac64 ]; then echo "XALL build succeeded." || false
   - npm i
-  - [ -d `node -e "require('.').rem()"` ] && echo "Normal build succeeded." || false
+  - if [ -d `node -e "require('.').rem()"` ] && echo "Normal build succeeded." || false
   - cd test && npm i
   - cd ..
 
