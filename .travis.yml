@@ -26,11 +26,11 @@ before_install:
 install:
   - npm i --XALL
   - if [ ! -d bin-win32 ] || [ ! -d bin-win64 ] || [ ! -d bin-linux32 ] || [ ! -d bin-linux64 ] || [ ! -d bin-mac64 ]; then
-      false
+      false;
     fi;
   - npm i
   - if [ -d bin-win32 ] || [ -d bin-win64 ] || [ -d bin-linux32 ] || [ ! -d bin-linux64 ] || [ -d bin-mac64 ]; then
-      false
+      false;
     fi;
   - cd test && npm i
   - cd ..
