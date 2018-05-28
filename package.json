@@ -2,7 +2,7 @@
 	"author": "Luis Blanco <luisblanco1337@gmail.com>",
 	"name": "deps-opengl-raub",
 	"version": "1.0.0",
-	"description": "Binaries and headers for OpenGL-dependent compilation",
+	"description": "Binaries and headers for OpenGL-dependent addons",
 	"license": "MIT",
 	"main": "index.js",
 	"keywords": [
@@ -10,7 +10,19 @@
 		"opengl",
 		"gl",
 		"3d",
-		"graphics"
+		"graphics",
+		"binary",
+		"library",
+		"dll",
+		"headers",
+		"lib",
+		"dylib",
+		"so",
+		"c++",
+		"addon",
+		"bindings",
+		"native",
+		"gyp"
 	],
 	"engines": {
 		"node": ">=8.11.2",
