@@ -6,13 +6,15 @@ This is a part of [Node3D](https://github.com/node-3d) project.
 
 ![Build Status](https://api.travis-ci.org/node-3d/deps-opengl-raub.svg?branch=master)
 
+> npm i -s deps-opengl-raub
+
 
 ## Synopsis
 
 This dependency package is distributing **OpenGL**, **GLFW3** and **GLEW**
 binaries through **NPM** for **Node.js** addons.
 
-* Platforms: win x32/x64, linux x32/x64, mac x64.
+* Platforms: win x32/x64, linux x64, mac x64.
 * Libraries: GLEW, GLFW, OpenGL.
 * Linking: static dll-type.
 
