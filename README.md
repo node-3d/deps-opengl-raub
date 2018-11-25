@@ -1,4 +1,4 @@
-# ObenGL binaries
+# OpenGL binaries
 
 This is a part of [Node3D](https://github.com/node-3d) project.
 
