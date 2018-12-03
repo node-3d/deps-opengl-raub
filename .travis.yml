@@ -1,34 +1,23 @@
-dist: trusty
-sudo: false
-
 language: node_js
 
 node_js:
-  - "8.11.4"
+  - "10.13.0"
 
 
-before_install:
-  - npm conf set strict-ssl false
-  - npm install -g npm@6.4.0
+matrix:
+  include:
+  - name: "Linux"
+    os: linux
+    dist: xenial
+    sudo: false
+  - name: "MacOS"
+    os: osx
 
 
 install:
-  - npm i --XALL
-  - if [[ ! -d bin-win32 || ! -d bin-win64 || ! -d bin-linux64 || ! -d bin-mac64 ]]; then
-      echo "Not all directories present";
-      false;
-    fi;
-  - npm i
-  - if [[ -d bin-win32 || -d bin-win64 || ! -d bin-linux64 || -d bin-mac64 ]]; then
-      echo "Wrong directories present";
-      false;
-    fi;
   - cd test
   - npm i
-  - cd ..
 
 
 script:
-  - cd test
   - npm test
-  - cd ..
