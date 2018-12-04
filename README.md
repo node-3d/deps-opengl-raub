@@ -15,7 +15,7 @@ This dependency package is distributing **OpenGL**, **GLFW3** and **GLEW**
 binaries through **NPM** for **Node.js** addons.
 
 * Platforms: win x32/x64, linux x64, mac x64.
-* Libraries: GLEW, GLFW, OpenGL.
+* Libraries: GLEW 2.1, GLFW 3.2.1, OpenGL.
 * Linking: static dll-type.
 
 
@@ -114,9 +114,11 @@ GLFW licensing information (a COPY) is given in a [separate file](/GLFW_ZLIB),
 which also can be found on
 [GLFW's official repository](https://github.com/glfw/glfw/blob/master/LICENSE.md).
 Windows binaries were found on the official web-site.
-Unix binaries are found through
-[Debian Packages](https://packages.debian.org/stretch/libglew-dev)
-and [MacOS Formulae](http://formulae.brew.sh/formula/glfw).
+Linux binaries are taken from
+[Ubuntu Packages](https://packages.ubuntu.com/cosmic/libglfw3).
+OSX dylibs are built within
+[CI](https://github.com/node-3d/reference/blob/master/.travis.yml)
+of the Node3D [reference repo](https://github.com/node-3d/reference).
 
 
 ### GLEW
@@ -128,9 +130,11 @@ GLEW licensing information (a COPY) is given in a [separate file](/GLEW_LICENSE)
 which also can be found on
 [GLEW's official repository](https://raw.githubusercontent.com/nigels-com/glew/master/LICENSE.txt).
 Windows binaries were found on the official web-site.
-Unix binaries are found through
-[Debian Packages](https://packages.debian.org/stretch/libglew-dev)
-and [MacOS Formulae](http://formulae.brew.sh/formula/glew).
+Linux binaries are taken from
+[Ubuntu Packages](https://packages.ubuntu.com/cosmic/libglew2.0).
+OSX dylibs are built within
+[CI](https://github.com/node-3d/reference/blob/master/.travis.yml)
+of the Node3D [reference repo](https://github.com/node-3d/reference).
 
 
 ### OpenGL
