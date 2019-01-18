@@ -3,6 +3,7 @@ echo 'GLEW Build Started'
 (
 	
 	cd src
+	
 	unzip -qq glew-2.1.0.zip -d .
 	
 	(
