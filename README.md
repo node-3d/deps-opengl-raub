@@ -117,9 +117,10 @@ which also can be found on
 Windows binaries were found on the official web-site.
 Linux binaries are taken from
 [Ubuntu Packages](https://packages.ubuntu.com/cosmic/libglfw3).
-OSX dylibs are built within
-[CI](https://github.com/node-3d/reference/blob/master/.travis.yml)
-of the Node3D [reference repo](https://github.com/node-3d/reference).
+OSX binaries are built through MAKE system with
+[Travis CI matrix](https://travis-ci.com/node-3d/deps-opengl-raub).
+See Travis [config](https://github.com/node-3d/deps-opengl-raub/blob/master/.travis.yml)
+for details.
 
 
 ### GLEW
@@ -133,9 +134,10 @@ which also can be found on
 Windows binaries were found on the official web-site.
 Linux binaries are taken from
 [Ubuntu Packages](https://packages.ubuntu.com/cosmic/libglew2.0).
-OSX dylibs are built within
-[CI](https://github.com/node-3d/reference/blob/master/.travis.yml)
-of the Node3D [reference repo](https://github.com/node-3d/reference).
+OSX binaries are built through MAKE system with
+[Travis CI matrix](https://travis-ci.com/node-3d/deps-opengl-raub).
+See Travis [config](https://github.com/node-3d/deps-opengl-raub/blob/master/.travis.yml)
+for details.
 
 
 ### OpenGL
