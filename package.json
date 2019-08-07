@@ -1,7 +1,7 @@
 {
 	"author": "Luis Blanco <luisblanco1337@gmail.com>",
 	"name": "deps-opengl-raub",
-	"version": "2.3.0",
+	"version": "3.0.0",
 	"description": "Binaries and headers for OpenGL-dependent addons",
 	"license": "MIT",
 	"main": "index.js",
@@ -24,22 +24,21 @@
 		"native",
 		"gyp"
 	],
-	"engines": {
-		"node": ">=10.13.0",
-		"npm": ">=6.4.1"
+	"config": {
+		"install": "v3.0.0"
 	},
-	"maintainers": [
-		{
-			"name": "Luis Blanco",
-			"email": "luisblanco1337@gmail.com",
-			"skype": "rauber666"
-		}
-	],
+	"scripts": {
+		"postinstall": "node install"
+	},
+	"engines": {
+		"node": ">=10.16.1",
+		"npm": ">=6.9.0"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/node-3d/deps-opengl-raub.git"
 	},
 	"dependencies": {
-		"addon-tools-raub": "4.2.0"
+		"addon-tools-raub": "https://github.com/node-3d/addon-tools-raub.git"
 	}
 }

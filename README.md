@@ -15,10 +15,9 @@ This is a part of [Node3D](https://github.com/node-3d) project.
 This dependency package is distributing **OpenGL**, **GLFW3** and **GLEW**
 binaries through **NPM** for **Node.js** addons.
 
-* Platforms: win x32/x64, linux x64, mac x64.
+* Platforms (x64): Windows, Linux, OSX.
 * Libraries: GLEW 2.1, GLFW 3.2.1, OpenGL.
 * Linking: static dll-type.
-
 
 ## Usage
 
@@ -26,8 +25,8 @@ binaries through **NPM** for **Node.js** addons.
 
 ```javascript
 	'variables': {
-		'opengl_include' : '<!(node -e "require(\'deps-opengl-raub\').include()")',
-		'opengl_bin'     : '<!(node -e "require(\'deps-opengl-raub\').bin()")',
+		'opengl_include' : '<!(node -p "require(\'deps-opengl-raub\').include")',
+		'opengl_bin'     : '<!(node -p "require(\'deps-opengl-raub\').bin")',
 	},
 	...
 	'targets': [
@@ -100,6 +99,9 @@ binaries through **NPM** for **Node.js** addons.
 #undef True
 #undef False
 ```
+
+Refer to [GLFW](https://www.glfw.org/documentation.html) and
+[GLEW](http://glew.sourceforge.net/basic.html) official docs.
 
 
 ---

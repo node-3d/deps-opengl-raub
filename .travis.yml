@@ -1,31 +1,36 @@
 matrix:
   include:
-  - name: "Linux Test"
-    language: node_js
-    node_js: "10.13.0"
-    os: linux
-    dist: xenial
-    sudo: false
-    install:
-    - cd test
-    - npm i
-  - name: "OSX Test"
-    os: osx
-    language: node_js
-    node_js: "10.13.0"
-    install:
-    - cd test
-    - npm i
-  - name: "OSX Build"
-    os: osx
-    if: commit_message =~ /^:hammer:/
-    language: cpp
-    compiler: clang++
-    env:
-    - OSXBUILD=true
-    script:
-      - chmod +x src/osx-glfw.sh && src/osx-glfw.sh
-      - chmod +x src/osx-glew.sh && src/osx-glew.sh
+    
+    - name: "Linux Test"
+      language: node_js
+      node_js: "10.16.1"
+      os: linux
+      if: NOT commit_message =~ /^:hammer:/
+      dist: xenial
+      sudo: false
+      install:
+        - cd test
+        - npm ci
+      
+    - name: "OSX Test"
+      os: osx
+      if: NOT commit_message =~ /^:hammer:/
+      language: node_js
+      node_js: "10.16.1"
+      install:
+        - cd test
+        - npm ci
+      
+    - name: "OSX Build"
+      os: osx
+      if: commit_message =~ /^:hammer:/
+      language: cpp
+      compiler: clang++
+      env:
+        - OSXBUILD=true
+      script:
+        - chmod +x src/osx-glfw.sh && src/osx-glfw.sh
+        - chmod +x src/osx-glew.sh && src/osx-glew.sh
 
 
 deploy:
