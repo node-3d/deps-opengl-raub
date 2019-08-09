@@ -1,6 +1,5 @@
 matrix:
   include:
-    
     - name: "Linux Test"
       language: node_js
       node_js: "10.16.1"
@@ -11,7 +10,6 @@ matrix:
       install:
         - cd test
         - npm ci
-      
     - name: "OSX Test"
       os: osx
       if: NOT commit_message =~ /^:hammer:/
@@ -20,7 +18,6 @@ matrix:
       install:
         - cd test
         - npm ci
-      
     - name: "OSX Build"
       os: osx
       if: commit_message =~ /^:hammer:/
