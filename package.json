@@ -24,6 +24,16 @@
 		"native",
 		"gyp"
 	],
+	"files": [
+		"include",
+		"index.js",
+		"install.js",
+		"GLEW_LICENSE",
+		"GLFW_ZLIB",
+		"LICENSE",
+		"package.json",
+		"README.md"
+	],
 	"config": {
 		"install": "v3.0.0"
 	},
