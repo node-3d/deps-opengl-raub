@@ -5,6 +5,8 @@ echo 'GLFW Build Started'
 	cd src
 	unzip -qq glfw-3.3.zip -d .
 	
+	mkdir -p build
+	
 	(
 		cd glfw-3.3
 		
@@ -29,7 +31,7 @@ echo 'GLFW Build Started'
 	)
 	
 	
-	mv glfw-3.3/src/libglfw.3.3.dylib glfw.dylib
+	mv glfw-3.3/src/libglfw.3.3.dylib build/glfw.dylib
 	
 )
 

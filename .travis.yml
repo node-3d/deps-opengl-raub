@@ -18,13 +18,24 @@ matrix:
       install:
         - cd test
         - npm ci
+    - name: "Linux Build"
+      os: linux
+      dist: xenial
+      sudo: false
+      if: commit_message =~ /^:hammer:/
+      env:
+        - ISBUILD=true
+        - SYSNAME=Linux
+      script:
+        - chmod +x src/linux-glfw.sh && src/linux-glfw.sh
     - name: "OSX Build"
       os: osx
       if: commit_message =~ /^:hammer:/
       language: cpp
       compiler: clang++
       env:
-        - OSXBUILD=true
+        - ISBUILD=true
+        - SYSNAME=OSX
       script:
         - chmod +x src/osx-glfw.sh && src/osx-glfw.sh
         - chmod +x src/osx-glew.sh && src/osx-glew.sh
@@ -33,14 +44,13 @@ matrix:
 deploy:
   on:
     all_branches: true
-    condition: $OSXBUILD = true
+    condition: $ISBUILD = true
   provider: releases
-  name: "Binary for OSX"
+  name: "Binary for $SYSNAME"
   body: $TRAVIS_COMMIT_MESSAGE
   api_key: $GITHUB_TOKEN
   skip_cleanup: true
   overwrite: true
   draft: true
-  file:
-    - "src/glfw.dylib"
-    - "src/glew.dylib"
+  file_glob: true
+  file: src/build/*
