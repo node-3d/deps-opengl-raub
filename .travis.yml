@@ -21,11 +21,14 @@ matrix:
     - name: "Linux Build"
       os: linux
       dist: xenial
-      sudo: false
+      sudo: required
       if: commit_message =~ /^:hammer:/
       env:
         - ISBUILD=true
         - SYSNAME=Linux
+      install:
+        - sudo apt-get update -qq
+        - sudo apt-get install -qq xorg-dev
       script:
         - chmod +x src/linux-glfw.sh && src/linux-glfw.sh
     - name: "OSX Build"
