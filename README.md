@@ -7,7 +7,7 @@ This is a part of [Node3D](https://github.com/node-3d) project.
 [![Build Status](https://api.travis-ci.com/node-3d/deps-opengl-raub.svg?branch=master)](https://travis-ci.com/node-3d/deps-opengl-raub)
 [![CodeFactor](https://www.codefactor.io/repository/github/node-3d/deps-opengl-raub/badge)](https://www.codefactor.io/repository/github/node-3d/deps-opengl-raub)
 
-> npm i -s deps-opengl-raub
+> npm i deps-opengl-raub
 
 
 ## Synopsis
@@ -16,7 +16,7 @@ This dependency package is distributing **OpenGL**, **GLFW3** and **GLEW**
 binaries through **NPM** for **Node.js** addons.
 
 * Platforms (x64): Windows, Linux, OSX.
-* Libraries: GLEW 2.1, GLFW 3.2.1, OpenGL.
+* Libraries: GLEW 2.1, GLFW 3.3, OpenGL.
 * Linking: static dll-type.
 
 ## Usage
@@ -25,8 +25,8 @@ binaries through **NPM** for **Node.js** addons.
 
 ```javascript
 	'variables': {
-		'opengl_include' : '<!(node -p "require(\'deps-opengl-raub\').include")',
-		'opengl_bin'     : '<!(node -p "require(\'deps-opengl-raub\').bin")',
+		'gl_include' : '<!(node -p "require(\'deps-opengl-raub\').include")',
+		'gl_bin'     : '<!(node -p "require(\'deps-opengl-raub\').bin")',
 	},
 	...
 	'targets': [
@@ -34,34 +34,36 @@ binaries through **NPM** for **Node.js** addons.
 			'target_name': '...',
 			
 			'include_dirs': [
-				'<(opengl_include)',
+				'<(gl_include)',
 				...
 			],
 			
-			'library_dirs': [ '<(opengl_bin)' ],
+			'library_dirs': [ '<(gl_bin)' ],
 			
 			'conditions': [
 				
 				['OS=="linux"', {
 					'libraries': [
-						'-Wl,-rpath,<(opengl_bin)',
-						'<(opengl_bin)/libglfw.so.3',
-						'<(opengl_bin)/libGLEW.so.2.0',
-						'<(opengl_bin)/libGL.so',
-						'<(opengl_bin)/libXrandr.so',
+						"-Wl,-rpath,'$$ORIGIN'",
+						"-Wl,-rpath,'$$ORIGIN/../node_modules/deps-opengl-raub/<(bin)'",
+						"-Wl,-rpath,'$$ORIGIN/../../deps-opengl-raub/<(bin)'",
+						'<(gl_bin)/libglfw.so.3',
+						'<(gl_bin)/libGL.so',
+						'<(gl_bin)/libXrandr.so',
 					],
 				}],
 				
 				['OS=="mac"', {
 					'libraries': [
-						'-Wl,-rpath,<(opengl_bin)',
-						'<(opengl_bin)/glfw.dylib',
-						'<(opengl_bin)/glew.dylib'
+						'-Wl,-rpath,@loader_path',
+						'-Wl,-rpath,@loader_path/../node_modules/deps-opengl-raub/<(bin)',
+						'-Wl,-rpath,@loader_path/../../deps-opengl-raub/<(bin)',
+						'<(gl_bin)/glfw.dylib',
 					],
 				}],
 				
 				['OS=="win"', {
-					'libraries': [ 'OpenGL32.lib', 'glfw3dll.lib', 'glew32.lib' ],
+					'libraries': ['OpenGL32.lib', 'glfw3dll.lib', 'glew32.lib'],
 				}],
 				
 			],
