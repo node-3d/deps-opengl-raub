@@ -14,7 +14,7 @@ echo 'GLEW Build Started'
 		make glew.lib
 		
 	)
-	ls glew-2.1.0/lib 
+	
 	mv glew-2.1.0/lib/libGLEW.so.2.1.0 build/glew.so.2
 	
 )
