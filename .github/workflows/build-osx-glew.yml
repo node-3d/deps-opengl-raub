@@ -12,10 +12,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 14.16
-      - name: Get Npm Version
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@master
+          node-version: 14.16.0
       - name: Build
         run: |
           sudo apt-get update -qq
@@ -28,6 +25,6 @@ jobs:
         with:
           draft: true
           tag_name: ${{ github.run }}-${{ github.sha }}
-          name: Bin OSX GLEW ${{ github.sha }}
-          body: OSX binaries ${{ steps.package-version.outputs.current-version }}
+          name: GLEW OSX
+          body: OSX GLEW binaries at ${{ github.sha }}
           files: src/build/*
