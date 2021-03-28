@@ -15,8 +15,6 @@ jobs:
           node-version: 14.16.0
       - name: Build
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -qq xorg-dev
           chmod +x src/osx-glew.sh && src/osx-glew.sh
       - name: Store Binaries
         uses: softprops/action-gh-release@v1
