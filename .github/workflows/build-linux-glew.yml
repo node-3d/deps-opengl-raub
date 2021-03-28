@@ -27,7 +27,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           draft: true
-          tag_name: ${{ github.ref }}
-          release_name: Bin Linux GLEW ${{ github.ref }}
+          tag_name: ${{ github.run }}-${{ github.sha }}
+          name: Bin Linux GLEW ${{ github.sha }}
           body: Linux binaries ${{ steps.package-version.outputs.current-version }}
           files: src/build/*

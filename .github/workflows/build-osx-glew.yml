@@ -27,6 +27,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           draft: true
-          release_name: Bin OSX GLEW ${{ github.ref }}
+          tag_name: ${{ github.run }}-${{ github.sha }}
+          name: Bin OSX GLEW ${{ github.sha }}
           body: OSX binaries ${{ steps.package-version.outputs.current-version }}
           files: src/build/*
