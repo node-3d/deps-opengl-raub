@@ -3,6 +3,7 @@ echo 'GLFW Build Started'
 (
 	
 	cd src
+	rm -rf glfw-3.3
 	unzip -qq glfw-3.3.zip -d .
 	
 	mkdir -p build

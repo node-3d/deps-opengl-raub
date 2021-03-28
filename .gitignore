@@ -7,5 +7,7 @@
 .eslintrc
 node_modules/
 doc/jest/
+src/build/
+src/glew*/
 bin-*/
 *.log

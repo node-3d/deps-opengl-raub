@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -qq xorg-dev
+          sudo apt-get install -qq libgl-dev dos2unix xorg-dev
           chmod +x src/linux-glew.sh && src/linux-glew.sh
       - name: Store Binaries
         uses: softprops/action-gh-release@v1
