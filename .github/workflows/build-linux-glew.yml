@@ -4,7 +4,7 @@ on:
   workflow_dispatch
 
 jobs:
-  publish:
+  build:
     if: contains('["raub"]', github.actor)
     runs-on: ubuntu-latest
     steps:
