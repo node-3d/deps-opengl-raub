@@ -6,5 +6,6 @@
 .vscode
 .eslintrc
 node_modules/
+doc/jest/
 bin-*/
 *.log

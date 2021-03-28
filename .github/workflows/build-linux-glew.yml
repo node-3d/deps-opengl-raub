@@ -1,0 +1,32 @@
+name: Build Linux GLEW
+
+on:
+  workflow_dispatch
+
+jobs:
+  publish:
+    if: contains('["raub"]', github.actor)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.16
+      - name: Get Npm Version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+      - name: Build
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -qq xorg-dev
+          chmod +x src/linux-glew.sh && src/linux-glew.sh
+      - name: Store Binaries
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          draft: true
+          release_name: Bin Linux GLEW ${{ github.ref }}
+          body: Linux binaries ${{ steps.package-version.outputs.current-version }}
+          files: src/build/*

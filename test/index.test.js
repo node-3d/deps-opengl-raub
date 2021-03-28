@@ -1,6 +1,6 @@
 'use strict';
 
-const { expect } = require('chai');
+const fs = require('fs');
 
 const deps = require('..');
 
@@ -8,19 +8,19 @@ const deps = require('..');
 describe('Paths', () => {
 	
 	it('exports an object', () => {
-		expect(deps).to.be.an('object');
+		expect(typeof deps).toBe('object');
 	});
 	
 	it('exports "bin" string', () => {
-		expect(deps.bin).to.be.a('string');
+		expect(typeof deps.bin).toBe('string');
 	});
 	
 	it('exports "include" string', () => {
-		expect(deps.include).to.be.a('string');
+		expect(typeof deps.include).toBe('string');
 	});
 	
 	it('has installed the "bin" directory', () => {
-		expect(require('fs').existsSync(deps.bin)).to.be.true;
+		expect(fs.existsSync(deps.bin)).toBe(true);
 	});
 	
 });
