@@ -1,7 +1,7 @@
 {
 	"author": "Luis Blanco <luisblanco1337@gmail.com>",
 	"name": "deps-opengl-raub",
-	"version": "3.1.0",
+	"version": "3.1.1",
 	"description": "Binaries and headers for OpenGL-dependent addons",
 	"license": "MIT",
 	"main": "index.js",
@@ -36,10 +36,26 @@
 	],
 	"scripts": {
 		"postinstall": "node install",
-		"test": "cd test && npm run test && cd ..",
-		"test-ci": "cd test && npm run test-ci && cd ..",
-		"test-install": "cd test && npm ci && cd ..",
-		"test-coverage": "cd test && npm run coverage && cd .."
+		"eslint": "eslint .",
+		"test": "jest --coverage=false --watch",
+		"test-ci": "jest --coverage=false --verbose",
+		"test-coverage": "rm -rf doc/jest && jest --coverage --silent"
+	},
+	"jest": {
+		"moduleFileExtensions": [
+			"js"
+		],
+		"testMatch": [
+			"**/*.test.js"
+		],
+		"coverageDirectory": "doc/jest",
+		"coverageReporters": [
+			"lcov"
+		],
+		"collectCoverageFrom": [
+			"**/*.js",
+			"!**/*.test.js"
+		]
 	},
 	"engines": {
 		"node": ">=14.16.0",
@@ -51,5 +67,11 @@
 	},
 	"dependencies": {
 		"addon-tools-raub": "5.3.x"
+	},
+	"devDependencies": {
+		"eslint": "7.23.0",
+		"eslint-plugin-jest": "24.3.3",
+		"eslint-plugin-node": "11.1.0",
+		"jest": "26.6.3"
 	}
 }

@@ -3,8 +3,6 @@
 This is a part of [Node3D](https://github.com/node-3d) project.
 
 [![NPM](https://nodei.co/npm/deps-opengl-raub.png?compact=true)](https://www.npmjs.com/package/deps-opengl-raub)
-
-[![Build Status](https://api.travis-ci.com/node-3d/deps-opengl-raub.svg?branch=master)](https://travis-ci.com/node-3d/deps-opengl-raub)
 [![CodeFactor](https://www.codefactor.io/repository/github/node-3d/deps-opengl-raub/badge)](https://www.codefactor.io/repository/github/node-3d/deps-opengl-raub)
 
 ```
@@ -153,10 +151,8 @@ GLFW licensing information (a COPY) is given in a [separate file](/GLFW_ZLIB),
 which also can be found on
 [GLFW's official repository](https://github.com/glfw/glfw/blob/master/LICENSE.md).
 Windows binaries were found on the official web-site.
-Linux binaries are taken from
-[Ubuntu Packages](https://packages.ubuntu.com/cosmic/libglfw3).
-OSX binaries are built through MAKE system with
-[Travis CI matrix](https://travis-ci.com/node-3d/deps-opengl-raub).
+Linux and OSX binaries are built through MAKE system with
+[GitHub Actions](https://travis-ci.com/node-3d/deps-opengl-raub).
 See Travis [config](https://github.com/node-3d/deps-opengl-raub/blob/master/.travis.yml)
 for details.
 
