@@ -16,9 +16,8 @@ jobs:
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
       - name: Build
-        shell: cmd
         run: |
-          .\src\windows-glew.cmd
+          cmd.exe /C .\src\windows-glew.cmd
       - name: Store Binaries
         uses: softprops/action-gh-release@v1
         env:
