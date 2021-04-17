@@ -15,8 +15,6 @@ jobs:
           node-version: 14.16.0
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
-        with:
-          vs-version: '[16.4,16.8)'
       - name: Build
         shell: cmd
         run: |
