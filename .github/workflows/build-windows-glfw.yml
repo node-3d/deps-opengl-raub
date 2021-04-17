@@ -17,14 +17,14 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.2
       - name: Build
         run: |
-          cmd.exe /C .\src\windows-glfw.cmd
+          src\windows-glfw.cmd
       - name: Store Binaries
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           draft: true
-          tag_name: ${{ github.run }}-${{ github.sha }}
+          tag_name: windows-glfw-${{ github.run }}-${{ github.sha }}
           name: GLFW Windows
           body: Windows GLFW binaries at ${{ github.sha }}
           files: src/build/*

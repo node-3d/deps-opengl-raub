@@ -24,7 +24,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           draft: true
-          tag_name: ${{ github.run }}-${{ github.sha }}
+          tag_name: linux-glew-${{ github.run }}-${{ github.sha }}
           name: GLEW Linux
           body: Linux GLEW binaries at ${{ github.sha }}
           files: src/build/*

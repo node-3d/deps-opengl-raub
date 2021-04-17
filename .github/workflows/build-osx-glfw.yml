@@ -22,7 +22,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           draft: true
-          tag_name: ${{ github.run }}-${{ github.sha }}
+          tag_name: osx-glfw-${{ github.run }}-${{ github.sha }}
           name: GLFW OSX
           body: OSX GLFW binaries at ${{ github.sha }}
           files: src/build/*

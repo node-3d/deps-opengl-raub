@@ -19,14 +19,13 @@ jobs:
         shell: cmd
         run: |
           src\windows-glew.cmd
-          dir src/build
       - name: Store Binaries
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           draft: true
-          tag_name: ${{ github.run }}-${{ github.sha }}
+          tag_name: windows-glew-${{ github.run }}-${{ github.sha }}
           name: GLEW Windows
           body: Windows GLEW binaries at ${{ github.sha }}
           files: src/build/*

@@ -16,5 +16,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.16.0
-      - run: npm run test-install
+      - run: npm ci
       - run: npm run test-ci
