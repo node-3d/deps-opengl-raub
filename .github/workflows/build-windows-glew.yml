@@ -1,0 +1,30 @@
+name: Build Windows GLEW
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    if: contains('["raub"]', github.actor)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.16.0
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
+      - name: Build
+        run: |
+          src\windows-glew.cmd
+      - name: Store Binaries
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          draft: true
+          tag_name: ${{ github.run }}-${{ github.sha }}
+          name: GLEW Windows
+          body: Windows GLEW binaries at ${{ github.sha }}
+          files: src/build/*

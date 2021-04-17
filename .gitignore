@@ -9,5 +9,6 @@ node_modules/
 doc/jest/
 src/build/
 src/glew*/
+src/glfw*/
 bin-*/
 *.log

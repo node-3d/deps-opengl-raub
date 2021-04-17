@@ -150,11 +150,8 @@ It is explicitly stated that GLFW can be used commercially in closed-source proj
 GLFW licensing information (a COPY) is given in a [separate file](/GLFW_ZLIB),
 which also can be found on
 [GLFW's official repository](https://github.com/glfw/glfw/blob/master/LICENSE.md).
-Windows binaries were found on the official web-site.
-Linux and OSX binaries are built through MAKE system with
-[GitHub Actions](https://travis-ci.com/node-3d/deps-opengl-raub).
-See Travis [config](https://github.com/node-3d/deps-opengl-raub/blob/master/.travis.yml)
-for details.
+Windows, Linux, and OSX binaries are built with
+[GitHub Actions](https://github.com/node-3d/deps-opengl-raub/actions).
 
 
 ### GLEW
@@ -165,13 +162,8 @@ It is explicitly stated that GLEW can be used commercially in closed-source proj
 GLEW licensing information (a COPY) is given in a [separate file](/GLEW_LICENSE),
 which also can be found on
 [GLEW's official repository](https://raw.githubusercontent.com/nigels-com/glew/master/LICENSE.txt).
-Windows binaries were found on the official web-site.
-Linux binaries are taken from
-[Ubuntu Packages](https://packages.ubuntu.com/cosmic/libglew2.0).
-OSX binaries are built through MAKE system with
-[Travis CI matrix](https://travis-ci.com/node-3d/deps-opengl-raub).
-See Travis [config](https://github.com/node-3d/deps-opengl-raub/blob/master/.travis.yml)
-for details.
+Windows, Linux, and OSX binaries are built with
+[GitHub Actions](https://github.com/node-3d/deps-opengl-raub/actions).
 
 
 ### OpenGL
