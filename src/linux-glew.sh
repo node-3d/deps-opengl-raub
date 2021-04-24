@@ -15,7 +15,7 @@ echo 'GLEW Build Started'
 		
 	)
 	
-	mv glew-2.1.0/lib/libGLEW.so.2.1.0 build/glew.so.2
+	mv glew-2.1.0/lib/libGLEW.so.2.1.0 build/libGLEW.so.2
 	
 )
 
