@@ -6,7 +6,7 @@ on:
 jobs:
   Build:
     if: contains('["raub"]', github.actor)
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-20.04
 
     steps:
 
@@ -16,7 +16,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 14.16.0
+          node-version: 16.17.0
 
       - name: Build
         run: |

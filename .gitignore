@@ -3,7 +3,6 @@
 .lock-wscript
 .DS_Store
 .project
-.vscode
 node_modules/
 doc/jest/
 src/build/

@@ -6,7 +6,6 @@ const deps = require('..');
 
 
 describe('Paths', () => {
-	
 	it('exports an object', () => {
 		expect(typeof deps).toBe('object');
 	});
@@ -22,5 +21,4 @@ describe('Paths', () => {
 	it('has installed the "bin" directory', () => {
 		expect(fs.existsSync(deps.bin)).toBe(true);
 	});
-	
 });

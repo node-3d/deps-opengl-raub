@@ -9,9 +9,6 @@ This is a part of [Node3D](https://github.com/node-3d) project.
 npm i deps-opengl-raub
 ```
 
-
-## Synopsis
-
 This dependency package is distributing **OpenGL**, **GLFW3** and **GLEW**
 binaries through **NPM** for **Node.js** addons.
 

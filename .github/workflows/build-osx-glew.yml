@@ -6,7 +6,7 @@ on:
 jobs:
   Build:
     if: contains('["raub"]', github.actor)
-    runs-on: macos-10.15
+    runs-on: macos-11
 
     steps:
 
@@ -16,7 +16,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 14.16.0
+          node-version: 16.17.0
 
       - name: Build
         run: |
