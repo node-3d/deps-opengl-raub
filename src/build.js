@@ -11,6 +11,13 @@ const {
 
 const getScriptForLib = (name) => `./${getPlatform()}-${name.toLowerCase()}.sh`;
 
+
+const fail = (error) => {
+	console.error(error);
+	process.exit(-1);
+};
+
+
 const chmod = async () => {
 	try {
 		if (getPlatform() === 'windows') {
@@ -19,15 +26,24 @@ const chmod = async () => {
 		
 		console.log('Setting Execution Permissions');
 		const { stderr } = await exec([
-			`chmod +x ${getScriptForLib('glfw')}`,
-			`chmod +x ${getScriptForLib('glew')}`,
+			`chmod +x ./${getPlatform()}-glfw.sh`,
+			`chmod +x ./${getPlatform()}-glew.sh`,
 		].join(' && '));
 		if (stderr) {
-			console.error(stderr);
+			fail(stderr);
+		}
+		if (getPlatform() === 'aarch64') {
+			const { stderr } = await exec([
+				`chmod +x ./linux-glfw.sh`,
+				`chmod +x ./linux-glew.sh`,
+			].join(' && '));
+			if (stderr) {
+				fail(stderr)
+			}
 		}
 		console.log('-------------------');
 	} catch (error) {
-		console.error(error);
+		fail(error);
 	}
 };
 
@@ -38,17 +54,17 @@ const updateSystem = async () => {
 		if (getPlatform() === 'linux') {
 			const { stderr } = await exec('chmod +x update-linux.sh && sh ./update-linux.sh');
 			if (stderr) {
-				console.error(stderr);
+				fail(stderr)
 			}
 		} else if (getPlatform() === 'aarch64') {
 			const { stderr } = await exec('chmod +x update-aarch64.sh && sh ./update-aarch64.sh');
 			if (stderr) {
-				console.error(stderr);
+				fail(stderr)
 			}
 		}
 		console.log('-------------------');
 	} catch (error) {
-		console.error(error);
+		fail(error);
 	}
 };
 
@@ -58,11 +74,11 @@ const extractArchives = async () => {
 		console.log('Extracting SRC acrhives');
 		const { stderr } = await exec('sh ./extract.sh');
 		if (stderr) {
-			console.error(stderr);
+			fail(stderr);
 		}
 		console.log('-------------------');
 	} catch (error) {
-		console.error(error);
+		fail(error);
 	}
 };
 
@@ -72,12 +88,12 @@ const buildLib = async (name) => {
 		console.log(`${name.toUpperCase()} Build Started`);
 		const { stderr } = await exec(`sh ${getScriptForLib(name)}`);
 		if (stderr) {
-			console.error(stderr);
+			fail(stderr);
 		}
 		console.log(`${name.toUpperCase()} Build Finished`);
 		console.log('-------------------');
 	} catch (error) {
-		console.error(error);
+		fail(error);
 	}
 };
 
@@ -104,7 +120,6 @@ const buildLib = async (name) => {
 			);
 		}
 	} catch (error) {
-		console.error(error);
-		process.exit(-1);
+		fail(error);
 	}
 })();
