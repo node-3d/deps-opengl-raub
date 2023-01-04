@@ -13,12 +13,14 @@ const getScriptForLib = (name) => `./${getPlatform()}-${name.toLowerCase()}.sh`;
 
 const chmod = async () => {
 	try {
+		if (getPlatform() === 'windows') {
+			return;
+		}
+		
 		console.log('Setting Execution Permissions');
 		const { stderr } = await exec([
 			`chmod +x ${getScriptForLib('glfw')}`,
 			`chmod +x ${getScriptForLib('glew')}`,
-			'chmod +x update.sh',
-			'chmod +x extract.sh',
 		].join(' && '));
 		if (stderr) {
 			console.error(stderr);
@@ -34,12 +36,12 @@ const updateSystem = async () => {
 	try {
 		console.log('Updating System');
 		if (getPlatform() === 'linux') {
-			const { stderr } = await exec('sh ./update-linux.sh');
+			const { stderr } = await exec('chmod +x update-linux.sh && sh ./update-linux.sh');
 			if (stderr) {
 				console.error(stderr);
 			}
 		} else if (getPlatform() === 'aarch64') {
-			const { stderr } = await exec('sh ./update-aarch64.sh');
+			const { stderr } = await exec('chmod +x update-aarch64.sh && sh ./update-aarch64.sh');
 			if (stderr) {
 				console.error(stderr);
 			}
@@ -82,12 +84,8 @@ const buildLib = async (name) => {
 
 (async () => {
 	try {
-		if (getPlatform() !== 'windows') {
-			await chmod();
-		}
-		
+		await chmod();
 		await updateSystem();
-		
 		await extractArchives();
 		
 		await buildLib('glew');
