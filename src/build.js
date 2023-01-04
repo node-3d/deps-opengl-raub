@@ -5,7 +5,7 @@ const util = require('node:util');
 const exec = util.promisify(require('node:child_process').exec);
 
 const {
-	getPlatform, getBin, ensuredir, cpdir,
+	getPlatform, getBin, ensuredir, copyall,
 } = require('addon-tools-raub');
 
 
@@ -92,7 +92,7 @@ const buildLib = async (name) => {
 		await buildLib('glfw');
 		
 		await ensuredir(path.resolve(`../${getBin()}`));
-		await cpdir(
+		await copyall(
 			path.resolve('./build'),
 			path.resolve(`../${getBin()}`),
 		);
