@@ -9,13 +9,6 @@ const {
 } = require('addon-tools-raub');
 
 
-// const fixSlash = (path) => {
-// 	if (getPlatform() === 'windows') {
-// 		path.replace(/\//g, '\\');
-// 	}
-// 	return path.replace(/\\/g, '/');
-// };
-
 const getScriptForLib = (name) => `./${getPlatform()}-${name.toLowerCase()}.sh`;
 
 const chmod = async () => {
@@ -37,12 +30,19 @@ const chmod = async () => {
 };
 
 
-const updateApt = async () => {
+const updateSystem = async () => {
 	try {
-		console.log('Updating APT');
-		const { stderr } = await exec('sh ./update.sh');
-		if (stderr) {
-			console.error(stderr);
+		console.log('Updating System');
+		if (getPlatform() === 'linux') {
+			const { stderr } = await exec('sh ./update-linux.sh');
+			if (stderr) {
+				console.error(stderr);
+			}
+		} else if (getPlatform() === 'aarch64') {
+			const { stderr } = await exec('sh ./update-aarch64.sh');
+			if (stderr) {
+				console.error(stderr);
+			}
 		}
 		console.log('-------------------');
 	} catch (error) {
@@ -86,9 +86,7 @@ const buildLib = async (name) => {
 			await chmod();
 		}
 		
-		if (getPlatform() === 'linux') {
-			await updateApt();
-		}
+		await updateSystem();
 		
 		await extractArchives();
 		
