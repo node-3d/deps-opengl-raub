@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('node:path');
 const util = require('node:util');
 const exec = util.promisify(require('node:child_process').exec);
 
@@ -7,6 +8,13 @@ const {
 	getPlatform, getBin, ensuredir, cpdir,
 } = require('addon-tools-raub');
 
+
+// const fixSlash = (path) => {
+// 	if (getPlatform() === 'windows') {
+// 		path.replace(/\//g, '\\');
+// 	}
+// 	return path.replace(/\\/g, '/');
+// };
 
 const getScriptForLib = (name) => `./${getPlatform()}-${name.toLowerCase()}.sh`;
 
@@ -32,7 +40,7 @@ const chmod = async () => {
 const updateApt = async () => {
 	try {
 		console.log('Updating APT');
-		const { stderr } = await exec('./update.sh');
+		const { stderr } = await exec('sh ./update.sh');
 		if (stderr) {
 			console.error(stderr);
 		}
@@ -46,7 +54,7 @@ const updateApt = async () => {
 const extractArchives = async () => {
 	try {
 		console.log('Extracting SRC acrhives');
-		const { stderr } = await exec('./extract.sh');
+		const { stderr } = await exec('sh ./extract.sh');
 		if (stderr) {
 			console.error(stderr);
 		}
@@ -60,7 +68,7 @@ const extractArchives = async () => {
 const buildLib = async (name) => {
 	try {
 		console.log(`${name.toUpperCase()} Build Started`);
-		const { stderr } = await exec(`./${getPlatform()}-${name.toLowerCase()}.sh`);
+		const { stderr } = await exec(`sh ${getScriptForLib(name)}`);
 		if (stderr) {
 			console.error(stderr);
 		}
@@ -74,7 +82,9 @@ const buildLib = async (name) => {
 
 (async () => {
 	try {
-		await chmod();
+		if (getPlatform() !== 'windows') {
+			await chmod();
+		}
 		
 		if (getPlatform() === 'linux') {
 			await updateApt();
@@ -86,10 +96,16 @@ const buildLib = async (name) => {
 		await buildLib('glfw');
 		
 		await ensuredir(path.resolve(`../${getBin()}`));
-		await cpdir(path.resolve('./build'), path.resolve(`../${getBin()}`));
+		await cpdir(
+			path.resolve('./build'),
+			path.resolve(`../${getBin()}`),
+		);
 		
 		if (getPlatform() === 'windows') {
-			await cp(path.resolve('./OpenGL32.Lib'), path.resolve(`../${getBin()}`));
+			await cp(
+				path.resolve('./OpenGL32.Lib'),
+				path.resolve(`../${getBin()}`),
+			);
 		}
 	} catch (error) {
 		console.error(error);

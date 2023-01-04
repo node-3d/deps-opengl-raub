@@ -1,8 +1,3 @@
-rm -rf glew-2.1.0
-unzip -qq glew-2.1.0.zip -d .
-
-mkdir -p build
-
 (
 	cd glew-2.1.0
 	make glew.lib

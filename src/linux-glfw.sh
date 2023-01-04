@@ -1,8 +1,3 @@
-rm -rf glfw-3.3.8
-unzip -qq glfw-3.3.8.zip -d .
-
-mkdir -p build
-
 (
 	cd glfw-3.3.8
 	
