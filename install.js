@@ -1,6 +1,6 @@
 'use strict';
 
-const install = require('addon-tools-raub/install');
+const { install } = require('addon-tools-raub');
 
 
 const prefix = 'https://github.com/node-3d/deps-opengl-raub/releases/download';

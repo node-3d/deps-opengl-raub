@@ -1,18 +1,11 @@
-echo 'GLEW Build Started'
+rm -rf glew-2.1.0
+unzip -qq glew-2.1.0.zip -d .
+
+mkdir -p build
 
 (
-	cd src
-	rm -rf glew-2.1.0
-	unzip -qq glew-2.1.0.zip -d .
-	
-	mkdir -p build
-	
-	(
-		cd glew-2.1.0
-		make glew.lib
-	)
-	
-	mv glew-2.1.0/lib/libGLEW.so.2.1.0 build/libGLEW.so.2.1
+	cd glew-2.1.0
+	make glew.lib
 )
 
-echo 'GLEW Build Finished'
+mv glew-2.1.0/lib/libGLEW.so.2.1.0 build/libGLEW.so.2.1

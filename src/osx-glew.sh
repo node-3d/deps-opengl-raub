@@ -1,18 +1,15 @@
 echo 'GLEW Build Started'
 
+rm -rf glew-2.1.0
+unzip -qq glew-2.1.0.zip -d .
+
+mkdir -p build
+
 (
-	cd src
-	rm -rf glew-2.1.0
-	unzip -qq glew-2.1.0.zip -d .
-	
-	mkdir -p build
-	
-	(
-		cd glew-2.1.0
-		make LDFLAGS.EXTRA='-install_name "@rpath/glew.dylib" -arch x86_64' glew.lib
-	)
-	
-	mv glew-2.1.0/lib/libGLEW.2.1.0.dylib build/glew.dylib
+	cd glew-2.1.0
+	make LDFLAGS.EXTRA='-install_name "@rpath/glew.dylib" -arch x86_64' glew.lib
 )
+
+mv glew-2.1.0/lib/libGLEW.2.1.0.dylib build/glew.dylib
 
 echo 'GLEW Build Finished'

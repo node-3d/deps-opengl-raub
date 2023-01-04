@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('addon-tools-raub').paths(__dirname);
+module.exports = require('addon-tools-raub').getPaths(__dirname);
