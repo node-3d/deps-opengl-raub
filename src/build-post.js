@@ -10,7 +10,7 @@ const {
 
 
 const bin = getBin();
-const binPath = path.resolve(`../${bin}`);
+const binPath = path.resolve(bin);
 const platform = getPlatform();
 
 
@@ -25,10 +25,10 @@ const fail = (error) => {
 		await ensuredir(binPath);
 		
 		if (platform === 'windows') {
-			await cp(path.resolve('./OpenGL32.Lib'), binPath);
+			await cp(path.resolve('src/OpenGL32.Lib'), binPath);
 		}
 		
-		await copyall(path.resolve('./build'), binPath);
+		await copyall(path.resolve('src/build'), binPath);
 	} catch (error) {
 		fail(error);
 	}
