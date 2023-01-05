@@ -5,7 +5,7 @@ const util = require('node:util');
 const exec = util.promisify(require('node:child_process').exec);
 
 const {
-	getPlatform, getBin, ensuredir, copyall, cp,
+	getPlatform, getBin, ensuredir, copyall, copy,
 } = require('addon-tools-raub');
 
 
@@ -25,7 +25,7 @@ const fail = (error) => {
 		await ensuredir(binPath);
 		
 		if (platform === 'windows') {
-			await cp(path.resolve('src/OpenGL32.Lib'), binPath);
+			await copy(path.resolve('src/OpenGL32.Lib'), binPath);
 		}
 		
 		await copyall(path.resolve('src/build'), binPath);
