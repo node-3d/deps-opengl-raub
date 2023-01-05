@@ -114,8 +114,10 @@ const buildLib = async (name) => {
 		await updateSystem();
 		await extractArchives();
 		
-		await buildLib('glew');
-		await buildLib('glfw');
+		if (platform !== 'windows') {
+			await buildLib('glew');
+			await buildLib('glfw');
+		}
 		
 		await ensuredir(binPath);
 		if (platform !== 'windows') {
