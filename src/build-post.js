@@ -25,7 +25,7 @@ const fail = (error) => {
 		await ensuredir(binPath);
 		
 		if (platform === 'windows') {
-			await copy(path.resolve('src/OpenGL32.Lib'), binPath);
+			await copy(path.resolve('src/OpenGL32.Lib'), `${binPath}/OpenGL32.Lib`);
 		}
 		
 		await copyall(path.resolve('src/build'), binPath);
