@@ -1,5 +1,5 @@
 (
-	cd glfw-3.3.8
+	cd src/glfw-3.3.8
 	
 	cmake \
 		-DBUILD_SHARED_LIBS=ON \
@@ -16,4 +16,4 @@
 	make
 )
 
-mv glfw-3.3.8/src/libglfw.3.3.dylib build/glfw.dylib
+mv src/glfw-3.3.8/src/libglfw.3.3.dylib src/build/glfw.dylib
