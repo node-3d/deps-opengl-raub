@@ -30,7 +30,7 @@ const chmod = async () => {
 			`chmod +x ./${getPlatform()}-glew.sh`,
 		].join(' && '));
 		if (stderr) {
-			fail(stderr);
+			console.error(stderr);
 		}
 		if (getPlatform() === 'aarch64') {
 			const { stderr } = await exec([
@@ -38,7 +38,7 @@ const chmod = async () => {
 				`chmod +x ./linux-glew.sh`,
 			].join(' && '));
 			if (stderr) {
-				fail(stderr)
+				console.error(stderr)
 			}
 		}
 		console.log('-------------------');
@@ -54,12 +54,12 @@ const updateSystem = async () => {
 		if (getPlatform() === 'linux') {
 			const { stderr } = await exec('chmod +x update-linux.sh && sh ./update-linux.sh');
 			if (stderr) {
-				fail(stderr)
+				console.error(stderr)
 			}
 		} else if (getPlatform() === 'aarch64') {
 			const { stderr } = await exec('chmod +x update-aarch64.sh && sh ./update-aarch64.sh');
 			if (stderr) {
-				fail(stderr)
+				console.error(stderr)
 			}
 		}
 		console.log('-------------------');
@@ -74,7 +74,7 @@ const extractArchives = async () => {
 		console.log('Extracting SRC acrhives');
 		const { stderr } = await exec('sh ./extract.sh');
 		if (stderr) {
-			fail(stderr);
+			console.error(stderr);
 		}
 		console.log('-------------------');
 	} catch (error) {
@@ -88,7 +88,7 @@ const buildLib = async (name) => {
 		console.log(`${name.toUpperCase()} Build Started`);
 		const { stderr } = await exec(`sh ${getScriptForLib(name)}`);
 		if (stderr) {
-			fail(stderr);
+			console.error(stderr);
 		}
 		console.log(`${name.toUpperCase()} Build Finished`);
 		console.log('-------------------');
