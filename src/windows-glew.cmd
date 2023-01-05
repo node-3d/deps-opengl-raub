@@ -1,6 +1,6 @@
 cd glew-2.1.0/build/vc12
 
-MSBuild /p:Platform=x64 /p:Configuration=Release /p:PlatformToolset=v142 glew_shared.vcxproj
+msbuild /p:Platform=x64 /p:Configuration=Release /p:PlatformToolset=v142 glew_shared.vcxproj
 
 cd ../../..
 

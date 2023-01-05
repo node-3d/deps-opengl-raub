@@ -76,6 +76,16 @@ jobs:
       - name: Build Current Binary
         run: npm run build-all
 
+      - name: Build Windows
+        shell: cmd
+        run: |
+          src\windows-glew.cmd
+          src\windows-glfw.cmd
+          copy /y src\build\glew32.dll bin-windows
+          copy /y src\build\glew32.lib bin-windows
+          copy /y src\build\glfw3.dll bin-windows
+          copy /y src\build\glfw3dll.lib bin-windows
+
       - name: Get Package Version
         id: package-version
         run: node -p "'version='+require('./package').version" >> $GITHUB_OUTPUT

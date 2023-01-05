@@ -118,11 +118,12 @@ const buildLib = async (name) => {
 		await buildLib('glfw');
 		
 		await ensuredir(binPath);
-		await copyall(path.resolve('./build'), binPath);
-		
-		if (platform === 'windows') {
-			await cp(path.resolve('./OpenGL32.Lib'), binPath);
+		if (platform !== 'windows') {
+			await copyall(path.resolve('./build'), binPath);
 		}
+		// if (platform === 'windows') {
+		// 	await cp(path.resolve('./OpenGL32.Lib'), binPath);
+		// }
 	} catch (error) {
 		fail(error);
 	}
