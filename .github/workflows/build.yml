@@ -75,22 +75,30 @@ jobs:
 
       - name: Echo Path 1
         if: matrix.os == 'windows-2022'
-        run: echo ${{ steps.path-export.outputs.PATH }}
+        run: echo path is $PATH
 
       - name: Echo Path CMD
         if: matrix.os == 'windows-2022'
         shell: cmd
-        run: echo ${{ steps.path-export.outputs.PATH }}
+        run: PATH
 
-      - name: Re-export PATH
-        id: path-export
+      - name: Re-export PATH to file
         if: matrix.os == 'windows-2022'
         shell: cmd
-        run: PATH > $GITHUB_OUTPUT
+        run: PATH > path.txt
+
+      - name: Echo PATH from file
+        if: matrix.os == 'windows-2022'
+        run: cat path.txt
+
+      - name: Re-export PATH from file
+        id: path-export
+        if: matrix.os == 'windows-2022'
+        run: cat path.txt >> $GITHUB_OUTPUT
 
       - name: Echo Path 2
         if: matrix.os == 'windows-2022'
-        run: echo ${{ steps.path-export.outputs.PATH }}
+        run: echo path is ${{ steps.path-export.outputs.PATH }}
 
       - name: Apply Path
         if: matrix.os == 'windows-2022'
