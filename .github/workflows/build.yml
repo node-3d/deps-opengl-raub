@@ -80,12 +80,14 @@ jobs:
         if: matrix.os == 'windows-2022'
         shell: cmd
         run: |
-          src\windows-glew.cmd
-          src\windows-glfw.cmd
-          copy /y src\build\glew32.dll bin-windows
-          copy /y src\build\glew32.lib bin-windows
-          copy /y src\build\glfw3.dll bin-windows
-          copy /y src\build\glfw3dll.lib bin-windows
+          cd src
+          windows-glew.cmd
+          windows-glfw.cmd
+          copy /y build\glew32.dll ..\bin-windows
+          copy /y build\glew32.lib ..\bin-windows
+          copy /y build\glfw3.dll ..\bin-windows
+          copy /y build\glfw3dll.lib ..\bin-windows
+          cd ..
 
       - name: Get Package Version
         id: package-version
