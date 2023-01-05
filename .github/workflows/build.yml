@@ -67,6 +67,12 @@ jobs:
       - name: Install Modules
         run: npm ci --ignore-scripts
 
+      - name: Add msbuild to PATH
+        if: matrix.os == 'windows'
+        uses: microsoft/setup-msbuild@v1.1
+        with:
+          msbuild-architecture: x64
+
       - name: Build Current Binary
         run: npm run build-all
 
