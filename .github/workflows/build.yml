@@ -73,24 +73,29 @@ jobs:
         with:
           msbuild-architecture: x64
 
-      - name: Build Current Binary
-        run: npm run build-all
+      - name: Build Pre Step
+        run: chmod +x src/extract.sh && src/extract.sh
 
-      - name: Build Windows
+      - name: Build Unix
+        if: matrix.os != 'windows-2022'
+        run: node src/build-unix
+
+      - name: Build Windows GLEW
         if: matrix.os == 'windows-2022'
         shell: cmd
-        run: |
-          cd src
-          windows-glew.cmd
-          windows-glfw.cmd
-          copy /y build\glew32.dll ..\bin-windows
-          copy /y build\glew32.lib ..\bin-windows
-          copy /y build\glfw3.dll ..\bin-windows
-          copy /y build\glfw3dll.lib ..\bin-windows
-          cd ..
+        run: src/windows-glew.cmd
+
+      - name: Build Windows GLFW
+        if: matrix.os == 'windows-2022'
+        shell: cmd
+        run: src/windows-glfw.cmd
+
+      - name: Build Post Step
+        run: node src/build-post
 
       - name: Get Package Version
         id: package-version
+        shell: bash
         run: node -p "'version='+require('./package').version" >> $GITHUB_OUTPUT
 
       - name: Pack Files
