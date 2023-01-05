@@ -1,1 +1,1 @@
-./linux-glew.sh
+src/linux-glew.sh

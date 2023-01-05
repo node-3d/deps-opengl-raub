@@ -1,1 +1,1 @@
-./linux-glfw.sh
+src/linux-glfw.sh
