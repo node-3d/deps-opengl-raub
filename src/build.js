@@ -9,7 +9,13 @@ const {
 } = require('addon-tools-raub');
 
 
-const getScriptForLib = (name) => `./${getPlatform()}-${name.toLowerCase()}.sh`;
+const bin = getBin();
+const binPath = path.resolve(`../${bin}`);
+
+const platform = getPlatform();
+const scriptExt = platform === 'windows' ? 'cmd' : 'sh';
+
+const getScriptForLib = (name) => `./${platform}-${name.toLowerCase()}.${scriptExt}`;
 
 
 const fail = (error) => {
@@ -20,21 +26,20 @@ const fail = (error) => {
 
 const chmod = async () => {
 	try {
-		if (getPlatform() === 'windows') {
-			const { stdout } = await exec('echo path is $PATH');
-			console.log(stdout);
+		if (platform === 'windows') {
+			console.log('pp', process.env.PATH);
 			return;
 		}
 		
 		console.log('Setting Execution Permissions');
 		const { stderr } = await exec([
-			`chmod +x ./${getPlatform()}-glfw.sh`,
-			`chmod +x ./${getPlatform()}-glew.sh`,
+			`chmod +x ./${platform}-glfw.sh`,
+			`chmod +x ./${platform}-glew.sh`,
 		].join(' && '));
 		if (stderr) {
 			console.error(stderr);
 		}
-		if (getPlatform() === 'aarch64') {
+		if (platform === 'aarch64') {
 			const { stderr } = await exec([
 				`chmod +x ./linux-glfw.sh`,
 				`chmod +x ./linux-glew.sh`,
@@ -52,13 +57,17 @@ const chmod = async () => {
 
 const updateSystem = async () => {
 	try {
+		if (!['linux', 'aarch64'].includes(platform)) {
+			return;
+		}
+		
 		console.log('Updating System');
-		if (getPlatform() === 'linux') {
+		if (platform === 'linux') {
 			const { stderr } = await exec('chmod +x update-linux.sh && sh ./update-linux.sh');
 			if (stderr) {
 				console.error(stderr);
 			}
-		} else if (getPlatform() === 'aarch64') {
+		} else if (platform === 'aarch64') {
 			const { stderr } = await exec('chmod +x update-aarch64.sh && sh ./update-aarch64.sh');
 			if (stderr) {
 				console.error(stderr);
@@ -88,7 +97,7 @@ const extractArchives = async () => {
 const buildLib = async (name) => {
 	try {
 		console.log(`${name.toUpperCase()} Build Started`);
-		const { stderr } = await exec(`sh ${getScriptForLib(name)}`);
+		const { stderr } = await exec(`${scriptExt} ${getScriptForLib(name)}`);
 		if (stderr) {
 			console.error(stderr);
 		}
@@ -109,17 +118,11 @@ const buildLib = async (name) => {
 		await buildLib('glew');
 		await buildLib('glfw');
 		
-		await ensuredir(path.resolve(`../${getBin()}`));
-		await copyall(
-			path.resolve('./build'),
-			path.resolve(`../${getBin()}`),
-		);
+		await ensuredir(binPath);
+		await copyall(path.resolve('./build'), binPath);
 		
-		if (getPlatform() === 'windows') {
-			await cp(
-				path.resolve('./OpenGL32.Lib'),
-				path.resolve(`../${getBin()}`),
-			);
+		if (platform === 'windows') {
+			await cp(path.resolve('./OpenGL32.Lib'), binPath);
 		}
 	} catch (error) {
 		fail(error);
