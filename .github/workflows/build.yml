@@ -96,6 +96,9 @@ jobs:
         if: matrix.os == 'windows-2022'
         run: export PATH=${{ steps.path-export.outputs.PATH }}:$PATH
 
+      - name: Build Current Binary
+        run: npm run build-all
+
       - name: Get Package Version
         id: package-version
         run: node -p "'version='+require('./package').version" >> $GITHUB_OUTPUT
