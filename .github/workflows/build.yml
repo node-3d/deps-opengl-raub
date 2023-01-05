@@ -73,8 +73,28 @@ jobs:
         with:
           msbuild-architecture: x64
 
-      - name: Build Current Binary
-        run: npm run build-all
+      - name: Echo Path 1
+        if: matrix.os == 'windows-2022'
+        run: echo ${{ steps.path-export.outputs.PATH }}
+
+      - name: Echo Path CMD
+        if: matrix.os == 'windows-2022'
+        shell: cmd
+        run: echo ${{ steps.path-export.outputs.PATH }}
+
+      - name: Re-export PATH
+        id: path-export
+        if: matrix.os == 'windows-2022'
+        shell: cmd
+        run: PATH > $GITHUB_OUTPUT
+
+      - name: Echo Path 2
+        if: matrix.os == 'windows-2022'
+        run: echo ${{ steps.path-export.outputs.PATH }}
+
+      - name: Apply Path
+        if: matrix.os == 'windows-2022'
+        run: export PATH=${{ steps.path-export.outputs.PATH }}:$PATH
 
       - name: Get Package Version
         id: package-version
