@@ -27,7 +27,6 @@ const fail = (error) => {
 const chmod = async () => {
 	try {
 		if (platform === 'windows') {
-			console.log('pp', process.env.PATH);
 			return;
 		}
 		
