@@ -82,27 +82,30 @@ jobs:
       #   shell: cmd
       #   run: PATH
 
-      - name: Re-export PATH to file
-        if: matrix.os == 'windows-2022'
-        shell: cmd
-        run: PATH > path.txt
+      # - name: Re-export PATH to file
+      #   if: matrix.os == 'windows-2022'
+      #   shell: cmd
+      #   run: PATH > path.txt
 
       # - name: Echo PATH from file
       #   if: matrix.os == 'windows-2022'
       #   run: cat path.txt
 
-      - name: Re-export PATH from file
-        id: path-export
-        if: matrix.os == 'windows-2022'
-        run: cat path.txt >> $GITHUB_OUTPUT
+      # - name: Re-export PATH from file
+      #   id: path-export
+      #   if: matrix.os == 'windows-2022'
+      #   run: cat path.txt >> $GITHUB_OUTPUT
 
       # - name: Echo Path 2
       #   if: matrix.os == 'windows-2022'
       #   run: echo path is ${{ steps.path-export.outputs.PATH }}
 
-      - name: Apply Path
-        if: matrix.os == 'windows-2022'
-        run: export PATH=${{ steps.path-export.outputs.PATH }}:$PATH
+      # - name: Apply Path
+      #   if: matrix.os == 'windows-2022'
+      #   run: export PATH=${{ steps.path-export.outputs.PATH }}:$PATH
+
+      - name: LS MsBuild
+        run: ls /c/Program Files/Microsoft Visual Studio/2022/Enterprise/MSBuild/Current/Bin/amd64
 
       - name: Build Current Binary
         run: npm run build-all

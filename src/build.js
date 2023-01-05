@@ -21,6 +21,8 @@ const fail = (error) => {
 const chmod = async () => {
 	try {
 		if (getPlatform() === 'windows') {
+			const { stdout } = await exec('echo path is $PATH');
+			console.log(stdout);
 			return;
 		}
 		
@@ -38,7 +40,7 @@ const chmod = async () => {
 				`chmod +x ./linux-glew.sh`,
 			].join(' && '));
 			if (stderr) {
-				console.error(stderr)
+				console.error(stderr);
 			}
 		}
 		console.log('-------------------');
@@ -54,12 +56,12 @@ const updateSystem = async () => {
 		if (getPlatform() === 'linux') {
 			const { stderr } = await exec('chmod +x update-linux.sh && sh ./update-linux.sh');
 			if (stderr) {
-				console.error(stderr)
+				console.error(stderr);
 			}
 		} else if (getPlatform() === 'aarch64') {
 			const { stderr } = await exec('chmod +x update-aarch64.sh && sh ./update-aarch64.sh');
 			if (stderr) {
-				console.error(stderr)
+				console.error(stderr);
 			}
 		}
 		console.log('-------------------');
