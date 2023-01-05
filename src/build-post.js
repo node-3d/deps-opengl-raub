@@ -5,7 +5,7 @@ const util = require('node:util');
 const exec = util.promisify(require('node:child_process').exec);
 
 const {
-	getPlatform, getBin, ensuredir, copyall,
+	getPlatform, getBin, ensuredir, copyall, cp,
 } = require('addon-tools-raub');
 
 
