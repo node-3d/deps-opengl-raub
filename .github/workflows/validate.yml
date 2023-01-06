@@ -56,6 +56,13 @@ jobs:
           node-version: 18.12.1
           cache: 'npm'
 
+      - name: Find libs
+        if: matrix.os == 'ubuntu-20.04'
+        run: |
+          chmod +x src/update-linux.sh && src/update-linux.sh
+          ldconfig -p | grep libGL.so
+          ldconfig -p | grep libXrandr.so
+
       - name: Install Modules
         run: npm ci --ignore-scripts
 
