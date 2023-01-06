@@ -30,7 +30,7 @@ const findLinuxLib = async (name) => {
 		if (!matched) {
 			return;
 		}
-		const libPath = mathced[0].replace(' => ', '');
+		const libPath = matched[0].replace(' => ', '');
 		console.log('COPY', libPath, `${binPath}/${name}`);
 		await copy(libPath, `${binPath}/${name}`);
 	} catch (error) {
