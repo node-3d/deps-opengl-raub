@@ -56,6 +56,9 @@ jobs:
           node-version: 18.12.1
           cache: 'npm'
 
+      - name: Install Modules
+        run: npm ci --ignore-scripts
+
       - name: Find libs
         if: matrix.os == 'ubuntu-20.04'
         run: |
@@ -67,9 +70,6 @@ jobs:
       - name: Build Post Step
         if: matrix.os == 'ubuntu-20.04'
         run: node src/build-post
-
-      - name: Install Modules
-        run: npm ci --ignore-scripts
 
       - name: Run Unit Tests
         run: npm run test-ci
