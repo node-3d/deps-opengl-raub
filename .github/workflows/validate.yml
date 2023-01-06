@@ -59,17 +59,5 @@ jobs:
       - name: Install Modules
         run: npm ci --ignore-scripts
 
-      - name: Find libs
-        if: matrix.os == 'ubuntu-20.04'
-        run: |
-          chmod +x src/update-linux.sh && src/update-linux.sh
-          ldconfig -p | grep libGL.so
-          ldconfig -p | grep libXrandr.so
-          ldconfig -p | grep libXrender.so
-
-      - name: Build Post Step
-        if: matrix.os == 'ubuntu-20.04'
-        run: node src/build-post
-
       - name: Run Unit Tests
         run: npm run test-ci

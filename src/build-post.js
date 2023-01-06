@@ -49,8 +49,6 @@ const findLinuxLib = async (name) => {
 			await findLinuxLib('libGL.so');
 			await findLinuxLib('libXrandr.so');
 			await findLinuxLib('libXrender.so');
-			// await findLinuxLib('libXrandr.a');
-			// await findLinuxLib('libXrender.a');
 		}
 		
 		await copyall(path.resolve('src/build'), binPath);
