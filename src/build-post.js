@@ -31,7 +31,6 @@ const findLinuxLib = async (name) => {
 			return;
 		}
 		const libPath = matched[0].replace(' => ', '');
-		console.log('COPY', libPath, `${binPath}/${name}`);
 		await copy(libPath, `${binPath}/${name}`);
 	} catch (error) {
 		fail(error);
@@ -45,7 +44,7 @@ const findLinuxLib = async (name) => {
 		
 		if (platform === 'windows') {
 			await copy(path.resolve('src/OpenGL32.Lib'), `${binPath}/OpenGL32.Lib`);
-		} else if (platform === 'linux') {
+		} else if (['linux', 'aarch64'].includes(platform)) {
 			await findLinuxLib('libGL.so');
 			await findLinuxLib('libXrandr.so');
 			await findLinuxLib('libXrender.so');
