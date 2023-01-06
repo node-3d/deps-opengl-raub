@@ -62,6 +62,13 @@ jobs:
           chmod +x src/update-linux.sh && src/update-linux.sh
           ldconfig -p | grep libGL.so
           ldconfig -p | grep libXrandr.so
+          ldconfig -p | grep libXrender.so
+          ldconfig -p | grep libXrandr.a
+          ldconfig -p | grep libXrender.a
+
+      - name: Build Post Step
+        if: matrix.os == 'ubuntu-20.04'
+        run: node src/build-post
 
       - name: Install Modules
         run: npm ci --ignore-scripts
