@@ -6,7 +6,7 @@ This is a part of [Node3D](https://github.com/node-3d) project.
 [![CodeFactor](https://www.codefactor.io/repository/github/node-3d/deps-opengl-raub/badge)](https://www.codefactor.io/repository/github/node-3d/deps-opengl-raub)
 
 ```
-npm i deps-opengl-raub
+npm i -s deps-opengl-raub
 ```
 
 This dependency package is distributing **OpenGL**, **GLFW3** and **GLEW**
