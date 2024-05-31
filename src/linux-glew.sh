@@ -1,6 +1,10 @@
 (
-	cd src/glew-2.1.0
-	make glew.lib
+	cd src
+	(
+		cd glew
+		make glew.lib
+	)
+	
+	mv glew/lib/libGLEW.so.2.2.0 build/libGLEW.so.2.2
 )
 
-mv src/glew-2.1.0/lib/libGLEW.so.2.1.0 src/build/libGLEW.so.2.1

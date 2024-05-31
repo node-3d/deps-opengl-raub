@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('node:path');
 const util = require('node:util');
 const exec = util.promisify(require('node:child_process').exec);
 

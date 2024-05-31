@@ -1,7 +1,12 @@
-rm -rf src/glew-2.1.0
-unzip -qq src/glew-2.1.0.zip -d src
-
-rm -rf src/glfw-3.3.8
-unzip -qq src/glfw-3.3.8.zip -d src
-
-mkdir -p src/build
+(
+	cd src
+	
+	rm -rf build
+	mkdir -p build
+	
+	rm -rf glew
+	git clone --depth 1 -b glew-2.2.0 https://github.com/nigels-com/glew.git
+	
+	rm -rf glfw
+	git clone --depth 1 -b 3.4 https://github.com/glfw/glfw.git
+)

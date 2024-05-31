@@ -6,15 +6,15 @@ This is a part of [Node3D](https://github.com/node-3d) project.
 [![ESLint](https://github.com/node-3d/deps-opengl-raub/actions/workflows/eslint.yml/badge.svg)](https://github.com/node-3d/deps-opengl-raub/actions/workflows/eslint.yml)
 [![Test](https://github.com/node-3d/deps-opengl-raub/actions/workflows/test.yml/badge.svg)](https://github.com/node-3d/deps-opengl-raub/actions/workflows/test.yml)
 
-```
+```console
 npm i -s deps-opengl-raub
 ```
 
 This dependency package is distributing **OpenGL**, **GLFW3** and **GLEW**
 binaries through **NPM** for **Node.js** addons.
 
-* Platforms (x64): Windows x64, Linux x64, OSX x64, Linux Aarch64.
-* Libraries: GLEW 2.1, GLFW 3.3, OpenGL.
+* Platforms (x64): Windows x64, Linux x64, Linux ARM, MacOS x64, MacOS ARM.
+* Libraries: GLEW 2.1, GLFW 3.4, OpenGL.
 
 
 ## Usage

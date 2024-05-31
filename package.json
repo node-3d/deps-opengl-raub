@@ -1,7 +1,7 @@
 {
 	"author": "Luis Blanco <luisblanco1337@gmail.com>",
 	"name": "deps-opengl-raub",
-	"version": "5.1.1",
+	"version": "6.0.0",
 	"description": "Binaries and headers for OpenGL-dependent addons",
 	"license": "MIT",
 	"main": "index.js",
@@ -42,20 +42,21 @@
 		"test-ci": "node --test"
 	},
 	"engines": {
-		"node": ">=18.16.0",
-		"npm": ">=9.5.1"
+		"node": ">=20.14.0",
+		"npm": ">=10.7.0"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/node-3d/deps-opengl-raub.git"
 	},
 	"dependencies": {
-		"addon-tools-raub": "^7.3.0"
+		"addon-tools-raub": "^8.0.0"
 	},
 	"devDependencies": {
-		"eslint-plugin-node": "^11.1.0",
-		"eslint": "^8.51.0",
-		"node-addon-api": "^7.0.0",
-		"typescript": "^5.2.2"
+		"@types/node": "^20.12.13",
+		"@eslint/js": "^9.3.0",
+		"eslint": "^9.3.0",
+		"node-addon-api": "^8.0.0",
+		"typescript": "^5.4.5"
 	}
 }

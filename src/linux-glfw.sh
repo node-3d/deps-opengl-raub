@@ -1,15 +1,17 @@
 (
-	cd src/glfw-3.3.8
-	
-	cmake \
-		-DBUILD_SHARED_LIBS=ON \
-		-DGLFW_BUILD_EXAMPLES=OFF \
-		-DGLFW_BUILD_TESTS=OFF \
-		-DGLFW_BUILD_DOCS=OFF \
-		-DGLFW_VULKAN_STATIC=OFF \
-		.
-	
-	make
-)
+	cd src
+	(
+		cd glfw
+		cmake \
+			-DBUILD_SHARED_LIBS=ON \
+			-DGLFW_BUILD_EXAMPLES=OFF \
+			-DGLFW_BUILD_TESTS=OFF \
+			-DGLFW_BUILD_DOCS=OFF \
+			-DGLFW_USE_WAYLAND=ON \
+			.
+		
+		make
+	)
 
-mv src/glfw-3.3.8/src/libglfw.so.3.3 src/build/libglfw.so.3
+	mv glfw/src/libglfw.so.3.4 build/libglfw.so.3
+)
