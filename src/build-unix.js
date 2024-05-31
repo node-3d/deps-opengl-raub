@@ -41,8 +41,12 @@ const buildLib = async (name) => {
 	try {
 		console.log(`${name.toUpperCase()} Build Started`);
 		const { stderr } = await exec(`sh ${getScriptForLib(name)}`);
-		if (stderr) {
-			console.error(stderr);
+		if (stderr && name !== 'glew') {
+			if (name === 'glew') {
+				console.error(stderr.replaceAll(/src\/glew\.c(.|\n)*?void/g, ''));
+			} else {
+				console.error(stderr);
+			}
 		}
 		console.log(`${name.toUpperCase()} Build Finished`);
 		console.log('-------------------');
