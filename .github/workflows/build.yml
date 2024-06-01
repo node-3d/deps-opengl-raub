@@ -69,7 +69,7 @@ jobs:
 
       - name: Add msbuild to PATH
         if: matrix.os == 'windows-2022'
-        uses: microsoft/setup-msbuild@v1.1
+        uses: microsoft/setup-msbuild@v2
         with:
           msbuild-architecture: x64
 
