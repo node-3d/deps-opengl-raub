@@ -8,6 +8,8 @@
 	"keywords": [
 		"dependency",
 		"opengl",
+		"glfw",
+		"glew",
 		"gl",
 		"3d",
 		"graphics",
