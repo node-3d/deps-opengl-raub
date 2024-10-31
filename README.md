@@ -13,7 +13,7 @@ npm i -s deps-opengl-raub
 This dependency package is distributing **OpenGL**, **GLFW3** and **GLEW**
 binaries through **NPM** for **Node.js** addons.
 
-* Platforms (x64): Windows x64, Linux x64, Linux ARM, MacOS x64, MacOS ARM.
+* Platforms (x64): Windows x64, Linux x64, Linux ARM, MacOS ARM.
 * Libraries: GLEW 2.2, GLFW 3.4, OpenGL.
 
 
