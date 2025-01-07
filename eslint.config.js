@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = module.exports = require('addon-tools-raub/utils/eslint-common');
+module.exports = require('addon-tools-raub/utils/eslint-common');
