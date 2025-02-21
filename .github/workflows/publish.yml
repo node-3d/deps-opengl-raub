@@ -41,6 +41,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          draft: true
           tag_name: ${{ steps.package-version.outputs.version }}
           name: Release ${{ steps.package-version.outputs.version }}
