@@ -1,11 +1,11 @@
-'use strict';
+import { exec as execCb } from 'node:child_process';
+import { promisify } from 'node:util';
 
-const util = require('node:util');
-const exec = util.promisify(require('node:child_process').exec);
+const exec = promisify(execCb);
 
 const {
 	getPlatform,
-} = require('addon-tools-raub');
+} = await import('@node-3d/addon-tools');
 
 
 const platform = getPlatform();
@@ -43,7 +43,7 @@ const buildLib = async (name) => {
 		const { stderr } = await exec(`sh ${getScriptForLib(name)}`);
 		if (stderr && name !== 'glew') {
 			if (name === 'glew') {
-				console.error(stderr.replaceAll(/src\/glew\.c(.|\n)*?void/g, ''));
+				console.error(stderr.replaceAll(/src\/glew\.c(.|\n)*?void/gu, ''));
 			} else {
 				console.error(stderr);
 			}
@@ -56,13 +56,11 @@ const buildLib = async (name) => {
 };
 
 
-(async () => {
-	try {
-		await updateSystem();
-		
-		await buildLib('glew');
-		await buildLib('glfw');
-	} catch (error) {
-		fail(error);
-	}
-})();
+try {
+	await updateSystem();
+	
+	await buildLib('glew');
+	await buildLib('glfw');
+} catch (error) {
+	fail(error);
+}

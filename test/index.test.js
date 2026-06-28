@@ -1,10 +1,6 @@
-'use strict';
-
-const assert = require('node:assert').strict;
-const { describe, it } = require('node:test');
-
-const deps = require('..');
-
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import deps from '../index.js';
 
 describe('Paths', () => {
 	it('exports an object', () => {

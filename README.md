@@ -2,12 +2,12 @@
 
 This is a part of [Node3D](https://github.com/node-3d) project.
 
-[![NPM](https://badge.fury.io/js/deps-opengl-raub.svg)](https://badge.fury.io/js/deps-opengl-raub)
-[![ESLint](https://github.com/node-3d/deps-opengl-raub/actions/workflows/eslint.yml/badge.svg)](https://github.com/node-3d/deps-opengl-raub/actions/workflows/eslint.yml)
-[![Test](https://github.com/node-3d/deps-opengl-raub/actions/workflows/test.yml/badge.svg)](https://github.com/node-3d/deps-opengl-raub/actions/workflows/test.yml)
+[![NPM](https://badge.fury.io/js/%40node-3d%2Fdeps-opengl.svg)](https://badge.fury.io/js/@node-3d/deps-opengl)
+[![Lint](https://github.com/node-3d/deps-opengl/actions/workflows/lint.yml/badge.svg)](https://github.com/node-3d/deps-opengl/actions/workflows/lint.yml)
+[![Test](https://github.com/node-3d/deps-opengl/actions/workflows/test.yml/badge.svg)](https://github.com/node-3d/deps-opengl/actions/workflows/test.yml)
 
 ```console
-npm i -s deps-opengl-raub
+npm install @node-3d/deps-opengl
 ```
 
 This dependency package is distributing **OpenGL**, **GLFW3** and **GLEW**
@@ -21,23 +21,23 @@ binaries through **NPM** for **Node.js** addons.
 
 ### JS Interface
 
-See in [glfw-raub](https://github.com/node-3d/glfw-raub/blob/master/core.js) Node.js addon.
+See in [@node-3d/glfw](https://github.com/node-3d/glfw/blob/master/ts/index.ts) Node.js addon.
 
-See in [webgl-raub](https://github.com/node-3d/webgl-raub/blob/master/core.js) Node.js addon.
+See in [@node-3d/webgl](https://github.com/node-3d/webgl/blob/master/ts/index.ts) Node.js addon.
 
 
 ### binding.gyp
 
-See in [glfw-raub](https://github.com/node-3d/glfw-raub/tree/master/src/binding.gyp) Node.js addon.
+See in [@node-3d/glfw](https://github.com/node-3d/glfw/tree/master/src/binding.gyp) Node.js addon.
 
-See in [webgl-raub](https://github.com/node-3d/webgl-raub/tree/master/src/binding.gyp) Node.js addon.
+See in [@node-3d/webgl](https://github.com/node-3d/webgl/tree/master/src/binding.gyp) Node.js addon.
 
 
 ### addon.cpp
 
-See in [glfw-raub](https://github.com/node-3d/glfw-raub/blob/master/src/cpp/glfw-common.hpp) Node.js addon.
+See in [@node-3d/glfw](https://github.com/node-3d/glfw/blob/master/src/cpp/glfw-common.hpp) Node.js addon.
 
-See in [webgl-raub](https://github.com/node-3d/webgl-raub/blob/master/src/cpp/webgl.hpp) Node.js addon.
+See in [@node-3d/webgl](https://github.com/node-3d/webgl/blob/master/src/cpp/webgl.hpp) Node.js addon.
 
 Refer to [GLFW](https://www.glfw.org/documentation.html) and
 [GLEW](http://glew.sourceforge.net/basic.html) official docs.

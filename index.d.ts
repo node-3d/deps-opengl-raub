@@ -1,12 +1,9 @@
-declare module "deps-opengl-raub" {
-	/**
-	 * Path to binaries
-	 * Platform binary directory absolute path
-	*/
-	export const bin: string;
-	/**
-	 * Path to includes
-	 * Include directory for this module
-	*/
-	export const include: string;
-}
+import type { getPaths } from '@node-3d/addon-tools';
+
+type AddonPaths = ReturnType<typeof getPaths>;
+
+export declare const bin: AddonPaths['bin'];
+export declare const include: AddonPaths['include'];
+
+declare const paths: AddonPaths;
+export default paths;
