@@ -98,7 +98,7 @@ jobs:
 
       - name: Pack Files
         id: pack-files
-        run: node -e "require('@node-3d/addon-tools').actionPack()" >> $GITHUB_OUTPUT
+        run: node -e "import('@node-3d/addon-tools').then((m) => m.actionPack())" >> $GITHUB_OUTPUT
 
       - name: Store Binaries
         uses: softprops/action-gh-release@v3
